@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Live Score League</string>
+
+    <string-array name="ligaName">
+        <item>Liga Inggris</item>
+        <item>Liga Spanyol</item>
+        <item>Liga Francis</item>
+        <item>Liga Jerman</item>
+        <item>Liga Italy</item>
+        <item>Liga America</item>
+        <item>Liga Portugal</item>
+        <item>Liga Australia</item>
+        <item>Liga Primer Skotlandia</item>
+        <item>Liga Inggris Championsip</item>
+    </string-array>
+    <array name="liga_image">
+        <item>@drawable/img_liga_inggris</item>
+        <item>@drawable/img_liga_spanyol</item>
+        <item>@drawable/img_liga_prancis</item>
+        <item>@drawable/img_liga_jerman</item>
+        <item>@drawable/img_liga_italy</item>
+        <item>@drawable/img_liga_america</item>
+        <item>@drawable/img_liga_portugis</item>
+        <item>@drawable/img_liga_australia</item>
+        <item>@drawable/img_liga_scotlan</item>
+        <item>@drawable/img_liga_championsip</item>
+    </array>
+    <string-array name="id_liga">
+        <item>4328</item>
+        <item>4335</item>
+        <item>4484</item>
+        <item>4331</item>
+        <item>4332</item>
+        <item>4346</item>
+        <item>4344</item>
+        <item>4356</item>
+        <item>4395</item>
+        <item>4396</item>
+
+    </string-array>
+</resources>
