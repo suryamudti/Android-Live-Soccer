@@ -5,6 +5,11 @@
     <string name="favorite">Favorite</string>
     <string name="teams">Teams</string>
 
+    <string name="tanggal_pertandingan">Tanggal Pertandingan</string>
+    <string name="club_team_home">Club Team Home</string>
+    <string name="vs">VS</string>
+    <string name="club_team_away">Club Team Away</string>
+
     <string-array name="ligaName">
         <item>Liga Inggris</item>
         <item>Liga Spanyol</item>
@@ -42,4 +47,14 @@
         <item>4396</item>
 
     </string-array>
+
+    <string name="nama_liga">Nama Liga</string>
+    <string name="favorite_anda">Pertandingan Favorite Anda</string>
+    <string name="no">No</string>
+    <string name="nama_club">Nama Club</string>
+    <string name="played">Played</string>
+    <string name="gf">GF</string>
+    <string name="ga">GA</string>
+    <string name="gd">GD</string>
+    <string name="pts">PTS</string>
 </resources>

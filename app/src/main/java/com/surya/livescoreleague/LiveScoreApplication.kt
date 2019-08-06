@@ -8,6 +8,9 @@ import com.surya.livescoreleague.data.preferences.PreferencesProvider
 import com.surya.livescoreleague.data.repositories.MatchRepository
 import com.surya.livescoreleague.ui.league.LeagueViewModelFactory
 import com.surya.livescoreleague.ui.match.MatchViewModelFactory
+import com.surya.livescoreleague.ui.match.next.NextViewModelFactory
+import com.surya.livescoreleague.ui.match.previous.PreviousViewModelFactory
+import com.surya.livescoreleague.ui.match.standings.StandingsViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
@@ -29,6 +32,10 @@ class LiveScoreApplication : Application(), KodeinAware {
         bind() from singleton { MatchRepository(instance(),instance(),instance()) }
         bind() from provider { LeagueViewModelFactory(instance()) }
         bind() from provider { MatchViewModelFactory(instance()) }
+        bind() from provider { PreviousViewModelFactory(instance()) }
+        bind() from provider { NextViewModelFactory(instance()) }
+        bind() from provider { StandingsViewModelFactory(instance()) }
+
 
     }
 

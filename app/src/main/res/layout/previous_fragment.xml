@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             xmlns:shimmer="http://schemas.android.com/apk/res-auto"
+             xmlns:app="http://schemas.android.com/tools"
+             android:layout_height="match_parent" app:ignore="NamespaceTypo">
+
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical"
+            shimmer:duration="800">
+
+        <!-- Adding 7 rows of placeholders -->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:background="@color/background"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:background="@color/background"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:background="@color/background"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:background="@color/background"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <com.mlsdev.animatedrv.AnimatedRecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:animationDuration="400"
+            app:layoutAnimation="@anim/layout_animation_from_bottom"
+            app:layoutManagerOrientation="vertical"
+            app:layoutManagerReverse="false"
+            app:layoutManagerType="linear"
+            android:id="@+id/rv_prev"/>
+
+</FrameLayout>

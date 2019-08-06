@@ -7,6 +7,8 @@ import com.surya.livescoreleague.data.db.models.League
 import com.surya.livescoreleague.data.network.MyApi
 import com.surya.livescoreleague.data.network.SafeApiRequest
 import com.surya.livescoreleague.data.network.responses.LeagueResponse
+import com.surya.livescoreleague.data.network.responses.MatchResponse
+import com.surya.livescoreleague.data.network.responses.StandingsResponse
 import com.surya.livescoreleague.data.preferences.PreferencesProvider
 import com.surya.livescoreleague.util.Coroutines
 import kotlinx.coroutines.Dispatchers
@@ -21,7 +23,7 @@ class MatchRepository(
         private val prefs: PreferencesProvider
 ) : SafeApiRequest() {
 
-//    private val leagues = MutableLiveData<List<League>>()
+    private val leagues = MutableLiveData<List<League>>()
 
 
     fun setLeagueId(id :String){
@@ -33,11 +35,26 @@ class MatchRepository(
     }
 
     suspend fun getLeagueDetail() : LeagueResponse{
-
         return apiRequest {
             api.getDetailLeague(getLeagueId())
         }
     }
 
+    suspend fun getPreviousMatch() : MatchResponse{
+        return apiRequest {
+            api.getLastMatch(getLeagueId())
+        }
+    }
 
+    suspend fun getNextMatch() : MatchResponse{
+        return apiRequest {
+            api.getNextMatch(getLeagueId())
+        }
+    }
+
+    suspend fun getStandings() : StandingsResponse{
+        return apiRequest {
+            api.getStandings(getLeagueId())
+        }
+    }
 }
