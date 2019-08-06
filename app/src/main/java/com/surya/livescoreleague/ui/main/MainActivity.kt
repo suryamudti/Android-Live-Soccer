@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.surya.livescoreleague.R
-import com.surya.livescoreleague.data.models.StaticLeague
+import com.surya.livescoreleague.data.db.entities.StaticLeague
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_main.*

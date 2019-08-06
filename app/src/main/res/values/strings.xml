@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Live Score League</string>
 
+    <string name="match">Match</string>
+    <string name="favorite">Favorite</string>
+    <string name="teams">Teams</string>
+
     <string-array name="ligaName">
         <item>Liga Inggris</item>
         <item>Liga Spanyol</item>
