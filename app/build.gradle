@@ -4,6 +4,11 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+//kotlin kapt and navigation safeargs plugin
+apply plugin: 'kotlin-kapt'
+
+apply plugin: "androidx.navigation.safeargs"
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
@@ -21,6 +26,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding {
+        enabled = true
+    }
+    androidExtensions {
+        experimental = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -29,7 +44,49 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.core:core-ktx:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //Images and Shimmer Loading
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
+
+    //Retrofit and GSON
+    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
+
+    //Kotlin Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.1"
+
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
+
+    //New Material Design
+    implementation 'com.google.android.material:material:1.1.0-alpha09'
+
+    //Kodein Dependency Injection
+    implementation "org.kodein.di:kodein-di-generic-jvm:6.2.1"
+    implementation "org.kodein.di:kodein-di-framework-android-x:6.2.1"
+
+    //Android Room
+    implementation "androidx.room:room-runtime:2.2.0-alpha01"
+    implementation "androidx.room:room-ktx:2.2.0-alpha01"
+    kapt "androidx.room:room-compiler:2.2.0-alpha01"
+
+    //Android Navigation Architecture
+    implementation "androidx.navigation:navigation-fragment-ktx:2.1.0-beta02"
+    implementation "androidx.navigation:navigation-ui-ktx:2.1.0-beta02"
+
+    //Groupie
+    implementation "com.xwray:groupie:2.3.0"
+    implementation "com.xwray:groupie-kotlin-android-extensions:2.3.0"
+    implementation "com.xwray:groupie-databinding:2.3.0"
+
+    //Animation
+    implementation "com.mlsdev.animatedrv:library:1.0.1"
+
 }
