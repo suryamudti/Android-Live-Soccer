@@ -7,8 +7,7 @@
         android:orientation="vertical"
         android:layout_marginTop="10dp"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".ui.league.LeagueActivity">
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <!-- TODO: Update blank fragment layout -->
@@ -125,7 +124,7 @@
 
     </com.facebook.shimmer.ShimmerFrameLayout>
 
-    <com.mlsdev.animatedrv.AnimatedRecyclerView
+    <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:animationDuration="400"
@@ -135,6 +134,6 @@
             app:layoutManagerType="linear"
             android:id="@+id/rv_standings">
 
-    </com.mlsdev.animatedrv.AnimatedRecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

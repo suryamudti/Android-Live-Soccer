@@ -38,6 +38,7 @@ class MatchFragment : Fragment(), MatchListener, KodeinAware {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        
 
         binding = DataBindingUtil.inflate(inflater,R.layout.match_fragment, container,false )
 

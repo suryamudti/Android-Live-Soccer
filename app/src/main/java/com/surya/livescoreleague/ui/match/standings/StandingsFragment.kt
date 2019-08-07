@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.facebook.shimmer.ShimmerFrameLayout
 import com.surya.livescoreleague.R
 import com.surya.livescoreleague.data.db.entities.Table
@@ -24,6 +25,7 @@ class StandingsFragment : Fragment(), StandingsListener, KodeinAware {
     private val factory : StandingsViewModelFactory by instance()
 
     private lateinit var shimmer: ShimmerFrameLayout
+    private lateinit var recyclerView: RecyclerView
 
     companion object {
         fun newInstance() = StandingsFragment()
@@ -37,6 +39,11 @@ class StandingsFragment : Fragment(), StandingsListener, KodeinAware {
     ): View? {
         val viewRoot = inflater.inflate(R.layout.standings_fragment, container, false)
         shimmer = viewRoot.findViewById(R.id.shimmer_view_container)
+        recyclerView = viewRoot.findViewById(R.id.rv_standings)
+
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.setHasFixedSize(true)
+
         return viewRoot
     }
 
@@ -62,11 +69,7 @@ class StandingsFragment : Fragment(), StandingsListener, KodeinAware {
             addAll(data.toItem())
         }
 
-        rv_standings.apply {
-            layoutManager = LinearLayoutManager(context)
-            setHasFixedSize(true)
-            adapter = mAdapter
-        }
+        recyclerView.adapter = mAdapter
     }
 
     override fun onFailure(message: String) {
