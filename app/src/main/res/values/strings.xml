@@ -9,6 +9,18 @@
     <string name="club_team_home">Club Team Home</string>
     <string name="vs">VS</string>
     <string name="club_team_away">Club Team Away</string>
+    <string name="match_detail">Match Detail</string>
+
+    <string name="zero">-</string>
+    <string name="goals">GOALS</string>
+    <string name="goalkeeper">GoalKeeper</string>
+    <string name="defense">Defense</string>
+    <string name="midfield">Midfield</string>
+    <string name="forward">Forward</string>
+
+    <string name="your_favorite">Favorite Match</string>
+    <string name="league_name">League Name</string>
+
 
     <string-array name="ligaName">
         <item>Liga Inggris</item>

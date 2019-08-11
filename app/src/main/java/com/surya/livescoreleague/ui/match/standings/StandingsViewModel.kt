@@ -19,6 +19,7 @@ class StandingsViewModel(
 
                 response.table.let {
                     listener?.onSuccess(it)
+                    return@main
                 }
             }catch (e: ApiException){
                 listener?.onFailure(e.message!!)

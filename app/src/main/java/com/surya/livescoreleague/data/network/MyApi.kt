@@ -1,8 +1,10 @@
 package com.surya.livescoreleague.data.network
 
+import com.example.surya.footballmatch.model.PlayerResponse
 import com.surya.livescoreleague.data.network.responses.LeagueResponse
 import com.surya.livescoreleague.data.network.responses.MatchResponse
 import com.surya.livescoreleague.data.network.responses.StandingsResponse
+import com.surya.livescoreleague.data.network.responses.TeamsResponse
 import com.surya.livescoreleague.util.Constants
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -28,6 +30,15 @@ interface MyApi{
 
     @GET("api/v1/json/1/lookuptable.php")
     suspend fun getStandings(@Query("l") league_id: String?) : Response<StandingsResponse>
+
+    @GET("api/v1/json/1/lookupteam.php")
+    suspend fun getDetailTeam(@Query("id") id_team : String) : Response<MatchResponse>
+
+    @GET("api/v1/json/1/lookup_all_teams.php")
+    suspend fun getListTeams(@Query("id") leagueId: String?) : Response<TeamsResponse>
+
+    @GET("api/v1/json/1/lookup_all_players.php")
+    suspend fun  getListPlayer(@Query("id") id_team: String) : Response<PlayerResponse>
 
     companion object{
         operator fun invoke(

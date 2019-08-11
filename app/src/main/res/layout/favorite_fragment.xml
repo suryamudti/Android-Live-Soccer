@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.favorite.FavoriteFragment">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/soccer"
+            android:id="@+id/liga"
+            android:scaleType="centerCrop"/>
     <TextView
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/your_favorite"
+            android:layout_below="@id/liga"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:id="@+id/textLiga"/>
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.viewpager.widget.ViewPager
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Hello"/>
+            android:layout_below="@id/textLiga"
+            android:id="@+id/pagerFavorite"
+            android:layout_marginTop="10dp">
+        <com.google.android.material.tabs.TabLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tabFavorite">
+        </com.google.android.material.tabs.TabLayout>
 
-</FrameLayout>
+    </androidx.viewpager.widget.ViewPager>
+
+</RelativeLayout>

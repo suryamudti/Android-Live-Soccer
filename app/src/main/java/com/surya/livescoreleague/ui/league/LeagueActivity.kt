@@ -2,6 +2,7 @@ package com.surya.livescoreleague.ui.league
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.surya.livescoreleague.R
 import com.surya.livescoreleague.data.db.entities.StaticLeague
@@ -19,9 +20,20 @@ class LeagueActivity : AppCompatActivity(), KodeinAware {
 
     private val factory : LeagueViewModelFactory by instance()
 
+    private lateinit var activedFragment : Fragment
+    private lateinit var f1 : Fragment
+    private lateinit var f2 : Fragment
+    private lateinit var f3 : Fragment
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_league)
+
+        f1 = MatchFragment()
+        f2 = FavoriteFragment()
+        f3 = TeamsFragment()
 
         val league = intent.getParcelableExtra<StaticLeague>("league_data")
 
@@ -30,6 +42,23 @@ class LeagueActivity : AppCompatActivity(), KodeinAware {
         val viewModel = ViewModelProviders.of(this,factory).get(LeagueViewModel::class.java)
 
         league.idLiga?.let { viewModel.setLeagueId(it) }
+
+        activedFragment = f1
+
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.mainContainerFavorites,f3,"3")
+            .hide(f3).commit()
+
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.mainContainerFavorites,f2,"2")
+            .hide(f2).commit()
+
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.mainContainerFavorites,f1,"1")
+            .commit()
 
         bottomFavorites.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -42,7 +71,6 @@ class LeagueActivity : AppCompatActivity(), KodeinAware {
                 R.id.teams -> {
                     loadTeamsFragment(savedInstanceState)
                 }
-
             }
             true
         }
@@ -54,35 +82,33 @@ class LeagueActivity : AppCompatActivity(), KodeinAware {
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
-                .replace(
-                    R.id.mainContainerFavorites,
-                    FavoriteFragment(), FavoriteFragment::class.java.simpleName
-                )
+                .hide(activedFragment)
+                .show(f2)
                 .commit()
+            activedFragment = f2
+
         }
     }
 
     private fun loadMatchFragment(savedInstanceState: Bundle?){
-
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
-                .replace(
-                    R.id.mainContainerFavorites,
-                    MatchFragment(), MatchFragment::class.java.simpleName
-                )
+                .hide(activedFragment)
+                .show(f1)
                 .commit()
+            activedFragment = f1
         }
-
     }
 
     private fun loadTeamsFragment(savedInstanceState: Bundle?){
         if (savedInstanceState == null){
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.mainContainerFavorites,
-                    TeamsFragment(),TeamsFragment::class.java.simpleName
-                ).commit()
+                .hide(activedFragment)
+                .show(f3)
+                .commit()
+            activedFragment = f3
         }
     }
 }

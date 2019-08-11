@@ -124,7 +124,7 @@
 
     </com.facebook.shimmer.ShimmerFrameLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <com.mlsdev.animatedrv.AnimatedRecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:animationDuration="400"
@@ -134,6 +134,6 @@
             app:layoutManagerType="linear"
             android:id="@+id/rv_standings">
 
-    </androidx.recyclerview.widget.RecyclerView>
+    </com.mlsdev.animatedrv.AnimatedRecyclerView>
 
 </LinearLayout>

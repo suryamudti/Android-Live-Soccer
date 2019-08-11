@@ -1,6 +1,7 @@
 package com.surya.livescoreleague.util
 
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
 
 /**
@@ -9,4 +10,8 @@ import android.widget.Toast
 
 fun Context.toast(message: String){
     Toast.makeText(this,message, Toast.LENGTH_LONG).show()
+}
+
+fun Log.logs(s:String){
+    Log.e("show data log","$s")
 }

@@ -1,5 +1,6 @@
 package com.surya.livescoreleague.ui.match
 
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -24,6 +25,10 @@ class MatchPagerAdapter(fragment: FragmentManager) : FragmentPagerAdapter(fragme
 
     override fun getCount(): Int {
         return pages.size
+    }
+
+    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+
     }
 
     override fun getPageTitle(position: Int): CharSequence? {

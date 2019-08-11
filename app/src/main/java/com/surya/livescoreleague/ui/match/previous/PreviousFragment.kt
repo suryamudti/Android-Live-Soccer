@@ -1,14 +1,17 @@
 package com.surya.livescoreleague.ui.match.previous
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.facebook.shimmer.ShimmerFrameLayout
+import com.mlsdev.animatedrv.AnimatedRecyclerView
 import com.surya.livescoreleague.R
 import com.surya.livescoreleague.data.db.entities.Event
 import com.xwray.groupie.GroupAdapter
@@ -26,7 +29,7 @@ class PreviousFragment : Fragment(),PreviousListener, KodeinAware {
 
     private lateinit var viewModel: PreviousViewModel
     private lateinit var shimmer: ShimmerFrameLayout
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var recyclerView: AnimatedRecyclerView
 
     companion object {
         fun newInstance() = PreviousFragment()
@@ -40,19 +43,26 @@ class PreviousFragment : Fragment(),PreviousListener, KodeinAware {
         val viewRoot = inflater.inflate(R.layout.previous_fragment, container, false)
         shimmer = viewRoot.findViewById(R.id.shimmer_view_container)
         recyclerView = viewRoot.findViewById(R.id.rv_prev)
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.setHasFixedSize(true)
-
         return viewRoot
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.setHasFixedSize(true)
+
         viewModel = ViewModelProviders.of(this, factory).get(PreviousViewModel::class.java)
 
         viewModel.listener = this
 
-        viewModel.getPreviousMatch()
+
+        // observe data list event
+        viewModel.getPreviousMatch()?.observe(this, Observer {
+
+            Log.e("data","nihh sizenya ${it.size}")
+
+        })
 
     }
 
