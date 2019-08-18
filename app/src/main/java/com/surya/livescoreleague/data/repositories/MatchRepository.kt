@@ -1,8 +1,7 @@
 package com.surya.livescoreleague.data.repositories
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.surya.footballmatch.model.PlayerResponse
+import com.surya.livescoreleague.data.db.entities.PlayerResponse
 import com.surya.livescoreleague.data.db.MyDatabase
 import com.surya.livescoreleague.data.db.models.League
 import com.surya.livescoreleague.data.network.MyApi
@@ -12,9 +11,6 @@ import com.surya.livescoreleague.data.network.responses.MatchResponse
 import com.surya.livescoreleague.data.network.responses.StandingsResponse
 import com.surya.livescoreleague.data.network.responses.TeamsResponse
 import com.surya.livescoreleague.data.preferences.PreferencesProvider
-import com.surya.livescoreleague.util.Coroutines
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 /**
  * Created by suryamudti on 06/08/2019.
@@ -72,9 +68,15 @@ class MatchRepository(
         }
     }
 
-    suspend fun getListPlayer(id: String): PlayerResponse{
+    suspend fun getListPlayer(id: String): PlayerResponse {
         return apiRequest {
             api.getListPlayer(id)
+        }
+    }
+
+    suspend fun getDetailPlayer(id: String) : PlayerResponse{
+        return apiRequest {
+            api.getDetailPlayer(id)
         }
     }
 }

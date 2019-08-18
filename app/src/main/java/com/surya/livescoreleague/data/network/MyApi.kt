@@ -1,6 +1,6 @@
 package com.surya.livescoreleague.data.network
 
-import com.example.surya.footballmatch.model.PlayerResponse
+import com.surya.livescoreleague.data.db.entities.PlayerResponse
 import com.surya.livescoreleague.data.network.responses.LeagueResponse
 import com.surya.livescoreleague.data.network.responses.MatchResponse
 import com.surya.livescoreleague.data.network.responses.StandingsResponse
@@ -38,7 +38,10 @@ interface MyApi{
     suspend fun getListTeams(@Query("id") leagueId: String?) : Response<TeamsResponse>
 
     @GET("api/v1/json/1/lookup_all_players.php")
-    suspend fun  getListPlayer(@Query("id") id_team: String) : Response<PlayerResponse>
+    suspend fun getListPlayer(@Query("id") id_team: String) : Response<PlayerResponse>
+
+    @GET("api/v1/json/1/lookupplayer.php")
+    suspend fun getDetailPlayer(@Query("id") id_player: String) : Response<PlayerResponse>
 
     companion object{
         operator fun invoke(

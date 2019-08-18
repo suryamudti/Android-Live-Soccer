@@ -18,7 +18,7 @@ class TeamDetailActivity : AppCompatActivity() {
 
         view_pager_teams.adapter = TeamDetailPagerAdapter(supportFragmentManager)
         tabLayoutTeams.setupWithViewPager(view_pager_teams)
-//        preference = MyPreference(this)
+
         val id = team.idTeam
 
 

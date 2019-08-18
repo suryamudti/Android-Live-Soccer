@@ -24,68 +24,8 @@
                 android:padding="5dp"
                 android:orientation="vertical">
 
-            <com.facebook.shimmer.ShimmerFrameLayout
-                    android:id="@+id/shimmer_teams_detail"
-                    shimmer:auto_start="true"
-                    android:layout_gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="15dp"
-                    android:orientation="vertical"
-                    shimmer:duration="800">
-
-                <LinearLayout
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                    <LinearLayout
-                            android:background="@color/background"
-                            android:layout_width="200dp"
-                            android:layout_height="200dp">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                            android:layout_marginTop="50dp"
-                            android:background="@color/background"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp">
-                    </LinearLayout>
-
-                    <LinearLayout
-                            android:layout_marginTop="50dp"
-                            android:background="@color/background"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp">
-                    </LinearLayout>
-                    <LinearLayout
-                            android:layout_marginTop="50dp"
-                            android:background="@color/background"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp">
-                    </LinearLayout>
-                    <LinearLayout
-                            android:layout_marginTop="50dp"
-                            android:background="@color/background"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp">
-                    </LinearLayout>
-                    <LinearLayout
-                            android:layout_marginTop="50dp"
-                            android:background="@color/background"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp">
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </com.facebook.shimmer.ShimmerFrameLayout>
-
             <LinearLayout
                     android:id="@+id/linearDetailTeams"
-                    android:visibility="gone"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -120,7 +60,6 @@
                         android:layout_height="wrap_content"/>
 
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 

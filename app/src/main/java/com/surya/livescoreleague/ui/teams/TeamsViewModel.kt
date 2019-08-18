@@ -20,12 +20,10 @@ class TeamsViewModel(
 
                 response.let {
                     listener?.onSuccess(it.teams)
-                    return@main
                 }
             }catch (e: ApiException){
                 listener?.onFailure(e.message!!)
             }
         }
     }
-
 }
