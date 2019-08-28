@@ -1,8 +1,10 @@
 package com.surya.livescoreleague.data.repositories
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.surya.livescoreleague.data.db.entities.PlayerResponse
 import com.surya.livescoreleague.data.db.MyDatabase
+import com.surya.livescoreleague.data.db.entities.Teams
 import com.surya.livescoreleague.data.db.models.League
 import com.surya.livescoreleague.data.network.MyApi
 import com.surya.livescoreleague.data.network.SafeApiRequest
@@ -11,6 +13,10 @@ import com.surya.livescoreleague.data.network.responses.MatchResponse
 import com.surya.livescoreleague.data.network.responses.StandingsResponse
 import com.surya.livescoreleague.data.network.responses.TeamsResponse
 import com.surya.livescoreleague.data.preferences.PreferencesProvider
+import com.surya.livescoreleague.util.Coroutines
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import okhttp3.Dispatcher
 
 /**
  * Created by suryamudti on 06/08/2019.
@@ -79,4 +85,30 @@ class MatchRepository(
             api.getDetailPlayer(id)
         }
     }
+
+
+    suspend fun getAllTeams() : LiveData<List<Teams>> {
+        return withContext(Dispatchers.IO){
+            db.getFavoritesDao().getAllTeams()
+        }
+    }
+
+    suspend fun getSingleTeam(id : Int) : LiveData<Teams>{
+        return withContext(Dispatchers.IO){
+            db.getFavoritesDao().getSingleTeam(id)
+        }
+    }
+
+    private fun saveTeams(team: Teams){
+        Coroutines.io {
+            db.getFavoritesDao().insertTeam(team)
+        }
+    }
+
+    private fun deleteTeams(team: Teams){
+        Coroutines.io {
+            db.getFavoritesDao().deleteTeam(team)
+        }
+    }
+
 }

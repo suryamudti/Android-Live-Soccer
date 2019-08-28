@@ -2,8 +2,15 @@ package com.surya.livescoreleague.data.db.entities
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-data class Teams ( val idLeague: String?,
+
+@Entity
+data class Teams (
+                   @PrimaryKey
+                   val id: Int,
+                   val idLeague: String?,
                    val idSoccerXML: String?,
                    val idTeam: String?,
                    val intFormedYear: String?,
@@ -39,6 +46,7 @@ data class Teams ( val idLeague: String?,
                    val strWebsite: String?,
                    val strYoutube: String?): Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readInt(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),

@@ -20,14 +20,14 @@ import org.kodein.di.generic.instance
 class TeamsFragment : Fragment(), TeamsListener, KodeinAware {
     override val kodein by kodein()
 
-    private val factory : TeamsViewModelFactory by instance()
+    private val factory: TeamsViewModelFactory by instance()
 
     companion object {
         fun newInstance() = TeamsFragment()
     }
 
     private lateinit var viewModel: TeamsViewModel
-    private lateinit var shimmer : ShimmerFrameLayout
+    private lateinit var shimmer: ShimmerFrameLayout
     private lateinit var recyclerView: AnimatedRecyclerView
 
     override fun onCreateView(
@@ -45,10 +45,10 @@ class TeamsFragment : Fragment(), TeamsListener, KodeinAware {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        recyclerView.layoutManager = GridLayoutManager(context,2)
+        recyclerView.layoutManager = GridLayoutManager(context, 2)
         recyclerView.setHasFixedSize(true)
 
-        viewModel = ViewModelProviders.of(this,factory).get(TeamsViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, factory).get(TeamsViewModel::class.java)
         viewModel.listener = this
         viewModel.getTeamList()
     }
@@ -70,7 +70,7 @@ class TeamsFragment : Fragment(), TeamsListener, KodeinAware {
         shimmer.visibility = View.GONE
     }
 
-    private fun List<Teams>.toItem() : List<TeamsItem>{
+    private fun List<Teams>.toItem(): List<TeamsItem> {
         return this.map {
             TeamsItem(it)
         }

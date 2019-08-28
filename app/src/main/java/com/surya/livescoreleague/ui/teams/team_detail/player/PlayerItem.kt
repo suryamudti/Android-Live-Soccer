@@ -6,6 +6,7 @@ import com.surya.livescoreleague.R
 import com.surya.livescoreleague.data.db.entities.Player
 import com.surya.livescoreleague.databinding.ItemPlayerBinding
 import com.surya.livescoreleague.ui.teams.team_detail.player.player_detail.PlayerDetailActivity
+import com.surya.livescoreleague.util.toast
 import com.xwray.groupie.databinding.BindableItem
 
 /**
@@ -24,8 +25,9 @@ class PlayerItem(
 
         viewBinding.root.setOnClickListener {
             val intent = Intent(it.context, PlayerDetailActivity::class.java)
-            intent.putExtra("player",player)
+            intent.putExtra("playerid",player.idPlayer)
             it.context.startActivity(intent)
+//            it.context.toast("${player?.idPlayer}")
         }
 
 

@@ -27,10 +27,6 @@ class MatchPagerAdapter(fragment: FragmentManager) : FragmentPagerAdapter(fragme
         return pages.size
     }
 
-    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-
-    }
-
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position){
             0 -> "Previous Match"

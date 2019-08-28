@@ -21,7 +21,6 @@ class TeamDetailViewModel(
 
     var playerDetailListener: PlayerDetailListener ? = null
 
-
     var teamListener : TeamsListener ?= null
 
     private var players = MutableLiveData<List<Player>>()
@@ -51,7 +50,7 @@ class TeamDetailViewModel(
             try {
                 val response = repository.getDetailPlayer(id)
 
-                Log.e("datas","size players ${response.player?.size}   size player ${response.player?.size}")
+                Log.e("datas","size players ${response.player?.size}   size player ${response.players?.size}")
                 response.players?.get(0)?.let { playerDetailListener?.onSuccess(it) }
 
                 player.value = response.player?.get(0)
@@ -62,6 +61,7 @@ class TeamDetailViewModel(
         }
 
         return  player
-
     }
+
+
 }

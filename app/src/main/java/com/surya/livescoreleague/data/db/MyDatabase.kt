@@ -3,7 +3,9 @@ package com.surya.livescoreleague.data.db
 import android.content.Context
 import androidx.room.*
 import androidx.sqlite.db.SupportSQLiteOpenHelper
+import com.surya.livescoreleague.data.db.dao.FavoriteDao
 import com.surya.livescoreleague.data.db.entities.FavoritePrevious
+import com.surya.livescoreleague.data.db.entities.Teams
 
 /**
  * Created by suryamudti on 06/08/2019.
@@ -11,10 +13,12 @@ import com.surya.livescoreleague.data.db.entities.FavoritePrevious
 
 
 @Database(
-    entities = [FavoritePrevious::class],
+    entities = [FavoritePrevious::class, Teams::class],
     version = 1
 )
 abstract class MyDatabase : RoomDatabase() {
+
+    abstract fun getFavoritesDao() : FavoriteDao
 
     companion object{
         @Volatile

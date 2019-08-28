@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.surya.livescoreleague.R
+import com.surya.livescoreleague.ui.favorite.FavoriteViewModel
+import com.surya.livescoreleague.ui.teams.team_detail.TeamDetailViewModel
 
 class FavoriteTeamsFragment : Fragment() {
 
@@ -15,7 +17,7 @@ class FavoriteTeamsFragment : Fragment() {
         fun newInstance() = FavoriteTeamsFragment()
     }
 
-    private lateinit var viewModel: FavoriteTeamsViewModel
+    private lateinit var viewModel: TeamDetailViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,7 +28,9 @@ class FavoriteTeamsFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(FavoriteTeamsViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(TeamDetailViewModel::class.java)
+
+
         // TODO: Use the ViewModel
     }
 

@@ -2,10 +2,8 @@ package com.surya.livescoreleague.ui.teams.team_detail
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.squareup.picasso.Picasso
@@ -29,6 +27,9 @@ class TeamDetailFragment : Fragment(), KodeinAware {
     private lateinit var viewModel: TeamDetailViewModel
     private lateinit var binding : TeamDetailFragmentBinding
 
+    private var menuItem: Menu? = null
+    private var isFavorite: Boolean = false
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,12 +45,47 @@ class TeamDetailFragment : Fragment(), KodeinAware {
 
         Picasso.get().load(team?.strTeamBadge).into(binding.imgTeamDetail)
 
+        setHasOptionsMenu(true)
+
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater?.inflate(R.menu.detail_menu, menu)
+        menuItem = menu
+        returnTransition
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        return when (item?.itemId) {
+            R.id.add_to_favorite -> {
+                if (isFavorite) removeFromFavorite()
+                else  addToFavorite()
+                isFavorite = !isFavorite
+                setFavorite()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun setFavorite() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    private fun addToFavorite() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    private fun removeFromFavorite() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 }

@@ -28,7 +28,7 @@ class PlayerDetailActivity : AppCompatActivity(), KodeinAware, PlayerDetailListe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val player = intent.getParcelableExtra<Player>("player")
+        val playerid = intent.getStringExtra("playerid")
 
         binding = DataBindingUtil.setContentView(this,R.layout.activity_player_detail)
 
@@ -36,7 +36,7 @@ class PlayerDetailActivity : AppCompatActivity(), KodeinAware, PlayerDetailListe
 
         viewModel.playerDetailListener = this
 
-        player.idPlayer?.let { viewModel.getDetailPlayer(it) }
+        viewModel.getDetailPlayer(playerid)
 
     }
 
