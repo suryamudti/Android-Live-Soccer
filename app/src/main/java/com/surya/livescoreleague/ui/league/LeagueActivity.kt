@@ -25,8 +25,6 @@ class LeagueActivity : AppCompatActivity(), KodeinAware {
     private lateinit var f2 : Fragment
     private lateinit var f3 : Fragment
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_league)
