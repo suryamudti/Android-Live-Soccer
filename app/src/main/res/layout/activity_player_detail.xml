@@ -22,13 +22,11 @@
 
             <com.facebook.shimmer.ShimmerFrameLayout
                     android:id="@+id/shimmer_player"
-                    shimmer:auto_start="true"
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="15dp"
-                    android:orientation="vertical"
-                    shimmer:duration="800">
+                    android:orientation="vertical">
 
                 <LinearLayout
                         android:orientation="vertical"
