@@ -5,5 +5,8 @@ package com.surya.livescoreleague.ui.league
  */
 class LeagueActivityTest {
 
+    @Rule
+    @JvmField
+    
 
 }
