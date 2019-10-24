@@ -58,7 +58,7 @@ class MatchFragment : Fragment(), MatchListener, KodeinAware {
     }
 
     override fun onStarted() {
-        binding.shimmerViewContainer.startShimmerAnimation()
+        binding.shimmerViewContainer.startShimmer()
     }
 
     override fun onSuccess(league: League) {

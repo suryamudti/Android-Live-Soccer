@@ -42,7 +42,7 @@ class PlayerDetailActivity : AppCompatActivity(), KodeinAware, PlayerDetailListe
 
     override fun onStarted() {
         binding.shimmerPlayer.visibility =View.VISIBLE
-        binding.shimmerPlayer.startShimmerAnimation()
+        binding.shimmerPlayer.startShimmer()
     }
 
     override fun onSuccess(data: Player) {

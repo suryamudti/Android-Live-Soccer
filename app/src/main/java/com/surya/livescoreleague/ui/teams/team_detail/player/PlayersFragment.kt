@@ -65,7 +65,7 @@ class PlayersFragment : Fragment(), KodeinAware, PlayerListener {
 
     override fun onStarted() {
         shimmer.visibility = View.VISIBLE
-        shimmer.startShimmerAnimation()
+        shimmer.startShimmer()
     }
 
     override fun onSuccess(data: List<Player>) {

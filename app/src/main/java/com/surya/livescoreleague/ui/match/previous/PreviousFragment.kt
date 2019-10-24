@@ -68,7 +68,7 @@ class PreviousFragment : Fragment(),PreviousListener, KodeinAware {
 
     override fun onStarted() {
         shimmer.visibility = View.VISIBLE
-        shimmer.startShimmerAnimation()
+        shimmer.startShimmer()
     }
 
     override fun onSuccess(data: List<Event>) {

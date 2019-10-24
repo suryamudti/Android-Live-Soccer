@@ -55,7 +55,7 @@ class TeamsFragment : Fragment(), TeamsListener, KodeinAware {
 
     override fun onStarted() {
         shimmer.visibility = View.VISIBLE
-        shimmer.startShimmerAnimation()
+        shimmer.startShimmer()
     }
 
     override fun onSuccess(data: List<Teams>) {
