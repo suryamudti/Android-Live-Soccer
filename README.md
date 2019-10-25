@@ -1,7 +1,7 @@
 # Android Live Soccer App
 
-![Screenshot](misc/Screenshoot_1.png)
-![Screenshot](misc/Screenshoot_6.png)
+![Screenshot](Screenshoot_1.png)
+![Screenshot](Screenshoot_6.png)
 
 Tech stack included :
 - Kodein (Dependency Injection)
