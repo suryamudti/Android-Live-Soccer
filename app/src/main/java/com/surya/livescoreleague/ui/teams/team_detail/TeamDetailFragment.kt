@@ -2,6 +2,7 @@ package com.surya.livescoreleague.ui.teams.team_detail
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
@@ -37,9 +38,9 @@ class TeamDetailFragment : Fragment(), KodeinAware {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.team_detail_fragment, container,false )
 
-        viewModel = ViewModelProviders.of(this,factory).get(TeamDetailViewModel::class.java)
-
         val team = activity?.intent?.getParcelableExtra<Teams>("team")
+
+//        Log.e("team detail",team.toString())
 
         binding.team = team
 
@@ -48,6 +49,14 @@ class TeamDetailFragment : Fragment(), KodeinAware {
         setHasOptionsMenu(true)
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel = ViewModelProviders.of(this,factory).get(TeamDetailViewModel::class.java)
+
+//        viewModel.
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

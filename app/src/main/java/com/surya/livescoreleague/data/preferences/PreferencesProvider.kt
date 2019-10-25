@@ -11,7 +11,9 @@ import android.preference.PreferenceManager
 
 class PreferencesProvider(context: Context) {
 
-    val LEAGUE_ID = "LEAGUE_ID"
+    private val LEAGUE_ID = "LEAGUE_ID"
+    private val TEAM_ID = "TEAM_ID"
+
 
     private val appContext = context.applicationContext
 
@@ -19,16 +21,22 @@ class PreferencesProvider(context: Context) {
         get() = PreferenceManager.getDefaultSharedPreferences(appContext)
 
     fun setLeagueId(leagueId : String){
-
-        preferences.edit().putString(
-            LEAGUE_ID,
-            leagueId
-        ).apply()
+        preferences.edit().putString(LEAGUE_ID,leagueId).apply()
     }
 
     fun getLeagueId(): String?{
         return preferences.getString(LEAGUE_ID,null)
     }
+
+    fun setTeamId(teamId : String){
+        preferences.edit().putString(TEAM_ID,teamId).apply()
+    }
+
+    fun getTeamId(): String?{
+        return preferences.getString(TEAM_ID,null)
+    }
+
+
 
 
 

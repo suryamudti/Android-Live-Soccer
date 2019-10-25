@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel;
 
 import com.surya.livescoreleague.data.db.entities.Player
+import com.surya.livescoreleague.data.db.entities.Teams
 import com.surya.livescoreleague.data.repositories.MatchRepository
 import com.surya.livescoreleague.ui.teams.TeamsListener
 import com.surya.livescoreleague.ui.teams.team_detail.player.PlayerListener
@@ -27,19 +28,7 @@ class TeamDetailViewModel(
 
     private var player = MutableLiveData<Player>()
 
-    fun getListPlayers(id: String): MutableLiveData<List<Player>>{
-        playerListener?.onStarted()
-        Coroutines.main {
-            try {
-                val response = repository.getListPlayer(id)
-                response.player?.let { playerListener?.onSuccess(it) }
 
-            }catch (e: ApiException){
-                e.message?.let { playerListener?.onFailure(it) }
-            }
-        }
-        return players
-    }
 
     fun getDetailPlayer(id: String): MutableLiveData<Player>{
 
@@ -61,6 +50,13 @@ class TeamDetailViewModel(
         }
 
         return  player
+    }
+
+    fun setTeamId(team: Teams){
+
+        team.idTeam?.let {
+            repository.setTeamId(it)
+        }
     }
 
 

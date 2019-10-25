@@ -2,6 +2,7 @@ package com.surya.livescoreleague.ui.teams.team_detail.player
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -26,7 +27,7 @@ class PlayersFragment : Fragment(), KodeinAware, PlayerListener {
 
     override val kodein by kodein()
 
-    private val factory : TeamDetailViewModelFactory by instance()
+    private val factory : PlayersViewModelFactory by instance()
 
     private lateinit var shimmer : ShimmerFrameLayout
     private lateinit var recyclerView: AnimatedRecyclerView
@@ -35,7 +36,7 @@ class PlayersFragment : Fragment(), KodeinAware, PlayerListener {
         fun newInstance() = PlayersFragment()
     }
 
-    private lateinit var viewModel: TeamDetailViewModel
+    private lateinit var viewModel: PlayersViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,13 +55,15 @@ class PlayersFragment : Fragment(), KodeinAware, PlayerListener {
         recyclerView.layoutManager = GridLayoutManager(context,2)
         recyclerView.setHasFixedSize(true)
 
-        viewModel = ViewModelProviders.of(this, factory).get(TeamDetailViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, factory).get(PlayersViewModel::class.java)
 
         val team = activity?.intent?.getParcelableExtra<Teams>("team")
 
+//        Log.e("fragment players"," id player "+team?.idTeam.toString())
+
         viewModel.playerListener = this
 
-        team?.idTeam?.let { viewModel.getListPlayers(it) }
+        team?.idTeam?.let { viewModel.getListPlayers() }
     }
 
     override fun onStarted() {
@@ -69,6 +72,7 @@ class PlayersFragment : Fragment(), KodeinAware, PlayerListener {
     }
 
     override fun onSuccess(data: List<Player>) {
+
         val mAdapter = GroupAdapter<ViewHolder>().apply {
             addAll(data.toItem())
         }

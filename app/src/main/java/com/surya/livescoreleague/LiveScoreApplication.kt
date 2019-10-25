@@ -16,6 +16,8 @@ import com.surya.livescoreleague.ui.match.previous.PreviousViewModelFactory
 import com.surya.livescoreleague.ui.match.standings.StandingsViewModelFactory
 import com.surya.livescoreleague.ui.teams.TeamsViewModelFactory
 import com.surya.livescoreleague.ui.teams.team_detail.TeamDetailViewModelFactory
+import com.surya.livescoreleague.ui.teams.team_detail.player.PlayersViewModel
+import com.surya.livescoreleague.ui.teams.team_detail.player.PlayersViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
@@ -45,6 +47,7 @@ class LiveScoreApplication : Application(), KodeinAware {
         bind() from provider { TeamDetailViewModelFactory(instance()) }
         bind() from provider { FavoriteViewModelFactory(instance()) }
         bind() from provider { FavoriteTeamsViewModelFactory(instance())}
+        bind() from provider { PlayersViewModelFactory(instance()) }
 
 
     }

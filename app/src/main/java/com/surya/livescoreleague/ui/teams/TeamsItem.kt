@@ -1,6 +1,7 @@
 package com.surya.livescoreleague.ui.teams
 
 import android.content.Intent
+import android.util.Log
 import com.squareup.picasso.Picasso
 import com.surya.livescoreleague.R
 import com.surya.livescoreleague.data.db.entities.Teams
@@ -23,10 +24,14 @@ class TeamsItem(
 
         viewBinding.team = team
 
+
+
         viewBinding.root.setOnClickListener {
-            val intent = Intent(it.context, TeamDetailActivity::class.java)
-            intent.putExtra("team",this.team)
-            it.context.startActivity(intent)
+
+            Log.e("team ",team.toString())
+//            val intent = Intent(it.context, TeamDetailActivity::class.java)
+//            intent.putExtra("team",team)
+//            it.context.startActivity(intent)
         }
     }
 }

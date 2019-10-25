@@ -38,6 +38,14 @@ class MatchRepository(
         return prefs.getLeagueId()
     }
 
+    fun setTeamId(id :String){
+        prefs.setTeamId(id)
+    }
+
+    fun getTeamId():String?{
+        return prefs.getTeamId()
+    }
+
     suspend fun getLeagueDetail() : LeagueResponse{
         return apiRequest {
             api.getDetailLeague(getLeagueId())
@@ -74,9 +82,9 @@ class MatchRepository(
         }
     }
 
-    suspend fun getListPlayer(id: String): PlayerResponse {
+    suspend fun getListPlayer(): PlayerResponse {
         return apiRequest {
-            api.getListPlayer(id)
+            api.getListPlayer(getTeamId())
         }
     }
 

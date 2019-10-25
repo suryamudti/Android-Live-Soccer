@@ -38,7 +38,7 @@ interface MyApi{
     suspend fun getListTeams(@Query("id") leagueId: String?) : Response<TeamsResponse>
 
     @GET("api/v1/json/1/lookup_all_players.php")
-    suspend fun getListPlayer(@Query("id") id_team: String) : Response<PlayerResponse>
+    suspend fun getListPlayer(@Query("id") id_team: String?) : Response<PlayerResponse>
 
     @GET("api/v1/json/1/lookupplayer.php")
     suspend fun getDetailPlayer(@Query("id") id_player: String) : Response<PlayerResponse>

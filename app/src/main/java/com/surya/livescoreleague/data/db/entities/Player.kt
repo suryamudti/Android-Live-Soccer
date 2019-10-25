@@ -3,16 +3,18 @@ package com.surya.livescoreleague.data.db.entities
 import android.os.Parcel
 import android.os.Parcelable
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 /**
  * Created by suryamudti on 29/07/2019.
  */
-@Entity
+
 data class Player(
     val dateBorn: String?,
     val dateSigned: String?,
     val idPlayer: String?,
     val idSoccerXML: String?,
+//    @PrimaryKey
     val idTeam: String?,
     val intLoved: String?,
     val strBirthLocation: String?,
