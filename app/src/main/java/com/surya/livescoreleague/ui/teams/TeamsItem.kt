@@ -24,8 +24,6 @@ class TeamsItem(
 
         viewBinding.team = team
 
-
-
         viewBinding.root.setOnClickListener {
 
             Log.e("team ",team.toString())
