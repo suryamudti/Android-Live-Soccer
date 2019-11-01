@@ -8,6 +8,7 @@ import com.surya.livescoreleague.data.db.entities.Teams
 import com.surya.livescoreleague.databinding.ItemTeamsBinding
 import com.surya.livescoreleague.ui.teams.team_detail.TeamDetailActivity
 import com.xwray.groupie.databinding.BindableItem
+import kotlin.math.log
 
 /**
  * Created by suryamudti on 09/08/2019.
@@ -22,6 +23,8 @@ class TeamsItem(
         Picasso.get().load(team.strTeamBadge).into(viewBinding.imgLiga)
         viewBinding.team = team
         viewBinding.root.setOnClickListener {
+//            Log.e("team item",team.toString())
+
             val intent = Intent(it.context, TeamDetailActivity::class.java)
             intent.putExtra("team",team)
             it.context.startActivity(intent)
