@@ -19,17 +19,12 @@ class TeamsItem(
     override fun getLayout() = R.layout.item_teams
 
     override fun bind(viewBinding: ItemTeamsBinding, position: Int) {
-
         Picasso.get().load(team.strTeamBadge).into(viewBinding.imgLiga)
-
         viewBinding.team = team
-
         viewBinding.root.setOnClickListener {
-
-            Log.e("team ",team.toString())
-//            val intent = Intent(it.context, TeamDetailActivity::class.java)
-//            intent.putExtra("team",team)
-//            it.context.startActivity(intent)
+            val intent = Intent(it.context, TeamDetailActivity::class.java)
+            intent.putExtra("team",team)
+            it.context.startActivity(intent)
         }
     }
 }

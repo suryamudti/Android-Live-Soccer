@@ -1,4 +1,4 @@
-package com.surya.livescoreleague
+package com.surya.livescoreleague.di
 
 import android.app.Application
 import com.surya.livescoreleague.data.db.MyDatabase
