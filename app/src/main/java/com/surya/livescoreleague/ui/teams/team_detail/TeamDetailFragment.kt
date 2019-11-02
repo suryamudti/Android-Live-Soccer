@@ -12,6 +12,7 @@ import com.surya.livescoreleague.R
 import com.surya.livescoreleague.data.db.entities.Player
 import com.surya.livescoreleague.data.db.entities.Teams
 import com.surya.livescoreleague.databinding.TeamDetailFragmentBinding
+import com.surya.livescoreleague.ui.main.ViewModelFactory
 import org.kodein.di.android.x.kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.generic.instance
@@ -19,7 +20,7 @@ import org.kodein.di.generic.instance
 class TeamDetailFragment : Fragment(), KodeinAware {
     override val kodein by kodein()
 
-    private val factory : TeamDetailViewModelFactory by instance()
+    private val factory : ViewModelFactory by instance()
 
     companion object {
         fun newInstance() = TeamDetailFragment()
@@ -40,8 +41,6 @@ class TeamDetailFragment : Fragment(), KodeinAware {
 
         val team = activity?.intent?.getParcelableExtra<Teams>("team")
 
-//        Log.e("team detail",team.toString())
-
         binding.team = team
 
         Picasso.get().load(team?.strTeamBadge).into(binding.imgTeamDetail)
@@ -55,8 +54,6 @@ class TeamDetailFragment : Fragment(), KodeinAware {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProviders.of(this,factory).get(TeamDetailViewModel::class.java)
-
-//        viewModel.
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
