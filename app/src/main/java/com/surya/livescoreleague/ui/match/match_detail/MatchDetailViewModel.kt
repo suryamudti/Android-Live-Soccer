@@ -12,8 +12,6 @@ class MatchDetailViewModel(
     private val repository: MatchRepository
 ) : ViewModel() {
 
-
-
     var listener : MatchDetailViewModelListener ? = null
 
     fun getHomeTeam(id : String){

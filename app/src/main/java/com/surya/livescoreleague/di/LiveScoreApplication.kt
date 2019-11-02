@@ -9,6 +9,7 @@ import com.surya.livescoreleague.data.repositories.MatchRepository
 import com.surya.livescoreleague.ui.favorite.FavoriteViewModelFactory
 import com.surya.livescoreleague.ui.favorite.favorite_teams.FavoriteTeamsViewModelFactory
 import com.surya.livescoreleague.ui.league.LeagueViewModelFactory
+import com.surya.livescoreleague.ui.main.ViewModelFactory
 import com.surya.livescoreleague.ui.match.MatchViewModelFactory
 import com.surya.livescoreleague.ui.match.match_detail.MatchDetailViewModelFactory
 import com.surya.livescoreleague.ui.match.next.NextViewModelFactory
@@ -37,6 +38,9 @@ class LiveScoreApplication : Application(), KodeinAware {
         bind() from singleton { MyDatabase(instance()) }
         bind() from singleton { PreferencesProvider(instance()) }
         bind() from singleton { MatchRepository(instance(),instance(),instance()) }
+
+        bind() from provider { ViewModelFactory(instance()) }
+
         bind() from provider { LeagueViewModelFactory(instance()) }
         bind() from provider { MatchViewModelFactory(instance()) }
         bind() from provider { PreviousViewModelFactory(instance()) }
@@ -48,7 +52,6 @@ class LiveScoreApplication : Application(), KodeinAware {
         bind() from provider { FavoriteViewModelFactory(instance()) }
         bind() from provider { FavoriteTeamsViewModelFactory(instance())}
         bind() from provider { PlayersViewModelFactory(instance()) }
-
 
     }
 

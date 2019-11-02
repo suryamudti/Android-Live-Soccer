@@ -11,6 +11,8 @@ import com.surya.livescoreleague.ui.league.LeagueViewModel
 class FavoriteViewModelFactory(val repository: MatchRepository) : ViewModelProvider.NewInstanceFactory(){
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+
+
         return FavoriteViewModel(repository) as T
     }
 }

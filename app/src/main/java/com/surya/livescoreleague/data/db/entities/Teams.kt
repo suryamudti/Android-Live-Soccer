@@ -1,6 +1,5 @@
 package com.surya.livescoreleague.data.db.entities
 
-import android.os.Parcel
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -45,4 +44,5 @@ data class Teams (
                    val strTeamLogo: String?,
                    val strTwitter: String?,
                    val strWebsite: String?,
-                   val strYoutube: String?): Parcelable
+                   val strYoutube: String?
+): Parcelable

@@ -1,6 +1,5 @@
 package com.surya.livescoreleague.data.db.entities
 
-import android.os.Parcel
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -11,12 +10,13 @@ import kotlinx.android.parcel.Parcelize
  */
 
 @Parcelize
+@Entity
 data class Player(
     val dateBorn: String?,
     val dateSigned: String?,
     val idPlayer: String?,
     val idSoccerXML: String?,
-//    @PrimaryKey
+    @PrimaryKey
     val idTeam: String?,
     val intLoved: String?,
     val strBirthLocation: String?,

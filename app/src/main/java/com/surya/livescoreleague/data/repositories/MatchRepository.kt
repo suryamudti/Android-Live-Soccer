@@ -29,7 +29,7 @@ class MatchRepository(
 
     private val leagues = MutableLiveData<List<League>>()
 
-
+    // SharedPreferences
     fun setLeagueId(id :String){
         prefs.setLeagueId(id)
     }
@@ -46,6 +46,7 @@ class MatchRepository(
         return prefs.getTeamId()
     }
 
+    // Remote
     suspend fun getLeagueDetail() : LeagueResponse{
         return apiRequest {
             api.getDetailLeague(getLeagueId())
@@ -94,7 +95,7 @@ class MatchRepository(
         }
     }
 
-
+    // Local Storage
     suspend fun getAllTeams() : LiveData<List<Teams>> {
         return withContext(Dispatchers.IO){
             db.getFavoritesDao().getAllTeams()

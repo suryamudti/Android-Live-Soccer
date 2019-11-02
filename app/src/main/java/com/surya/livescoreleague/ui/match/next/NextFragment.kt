@@ -14,6 +14,7 @@ import com.facebook.shimmer.ShimmerFrameLayout
 import com.mlsdev.animatedrv.AnimatedRecyclerView
 import com.surya.livescoreleague.R
 import com.surya.livescoreleague.data.db.entities.Event
+import com.surya.livescoreleague.ui.main.ViewModelFactory
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.next_fragment.*
@@ -26,7 +27,7 @@ class NextFragment : Fragment(), NextListener, KodeinAware {
 
     override val kodein by kodein()
 
-    private val factory : NextViewModelFactory by instance()
+    private val factory : ViewModelFactory by instance()
 
     private lateinit var shimmer: ShimmerFrameLayout
     private lateinit var recyclerView: AnimatedRecyclerView

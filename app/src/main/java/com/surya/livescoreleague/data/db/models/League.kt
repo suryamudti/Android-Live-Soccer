@@ -1,8 +1,13 @@
 package com.surya.livescoreleague.data.db.models
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
 /**
  * Created by suryamudti on 06/08/2019.
  */
+
+@Parcelize
 data class League(
     val dateFirstEvent: String,
     val idCup: String,
@@ -47,4 +52,4 @@ data class League(
     val strTwitter: String,
     val strWebsite: String,
     val strYoutube: String
-)
+): Parcelable
