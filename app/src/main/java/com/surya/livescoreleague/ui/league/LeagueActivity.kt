@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.surya.livescoreleague.R
 import com.surya.livescoreleague.data.db.entities.StaticLeague
 import com.surya.livescoreleague.ui.favorite.FavoriteFragment
+import com.surya.livescoreleague.ui.main.ViewModelFactory
 import com.surya.livescoreleague.ui.match.MatchFragment
 import com.surya.livescoreleague.ui.teams.TeamsFragment
 import kotlinx.android.synthetic.main.activity_league.*
@@ -18,7 +19,7 @@ class LeagueActivity : AppCompatActivity(), KodeinAware {
 
     override val kodein by kodein()
 
-    private val factory : LeagueViewModelFactory by instance()
+    private val factory : ViewModelFactory by instance()
 
     private lateinit var activedFragment : Fragment
     private lateinit var f1 : Fragment

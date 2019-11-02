@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModelProviders
 import com.surya.livescoreleague.R
 import com.surya.livescoreleague.data.db.entities.Teams
+import com.surya.livescoreleague.ui.main.ViewModelFactory
 import kotlinx.android.synthetic.main.activity_team_detail.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
@@ -15,7 +16,7 @@ class TeamDetailActivity : AppCompatActivity(), KodeinAware {
 
     override val kodein by kodein()
 
-    private val factory : TeamDetailViewModelFactory by instance()
+    private val factory : ViewModelFactory by instance()
 
     private lateinit var viewModel : TeamDetailViewModel
 

@@ -16,6 +16,7 @@ import com.surya.livescoreleague.R
 import com.surya.livescoreleague.util.toast
 import com.surya.livescoreleague.data.db.models.League
 import com.surya.livescoreleague.databinding.MatchFragmentBinding
+import com.surya.livescoreleague.ui.main.ViewModelFactory
 import kotlinx.android.synthetic.main.match_fragment.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.kodein
@@ -25,7 +26,7 @@ class MatchFragment : Fragment(), MatchListener, KodeinAware {
 
     override val kodein by kodein()
 
-    private val factory : MatchViewModelFactory by instance()
+    private val factory : ViewModelFactory by instance()
 
     companion object {
         fun newInstance() = MatchFragment()

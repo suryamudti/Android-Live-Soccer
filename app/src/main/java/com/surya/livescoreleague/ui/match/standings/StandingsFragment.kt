@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.facebook.shimmer.ShimmerFrameLayout
 import com.surya.livescoreleague.R
 import com.surya.livescoreleague.data.db.entities.Table
+import com.surya.livescoreleague.ui.main.ViewModelFactory
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.standings_fragment.*
@@ -22,7 +23,7 @@ class StandingsFragment : Fragment(), StandingsListener, KodeinAware {
 
     override val kodein by kodein()
 
-    private val factory : StandingsViewModelFactory by instance()
+    private val factory : ViewModelFactory by instance()
 
     private lateinit var shimmer: ShimmerFrameLayout
     private lateinit var recyclerView: RecyclerView

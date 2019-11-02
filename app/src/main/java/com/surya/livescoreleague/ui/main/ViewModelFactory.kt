@@ -37,6 +37,8 @@ class ViewModelFactory(val repository: MatchRepository) : ViewModelProvider.NewI
             return StandingsViewModel(repository) as T
         else if(modelClass.isAssignableFrom(PlayersViewModel::class.java))
             return PlayersViewModel(repository) as T
+        else if (modelClass.isAssignableFrom(LeagueViewModel::class.java))
+            return LeagueViewModel(repository) as T
         else if(modelClass.isAssignableFrom(FavoriteViewModel::class.java))
             return FavoriteViewModel(repository) as T
         else if(modelClass.isAssignableFrom(TeamsViewModel::class.java))

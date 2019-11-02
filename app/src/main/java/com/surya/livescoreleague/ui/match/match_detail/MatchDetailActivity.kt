@@ -10,6 +10,7 @@ import com.surya.livescoreleague.R
 import com.surya.livescoreleague.data.db.entities.Event
 import com.surya.livescoreleague.data.db.entities.Teams
 import com.surya.livescoreleague.databinding.ActivityMatchDetailBinding
+import com.surya.livescoreleague.ui.main.ViewModelFactory
 import com.surya.livescoreleague.util.toast
 import org.kodein.di.android.x.kodein
 import org.kodein.di.KodeinAware
@@ -23,7 +24,7 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailViewModelListener, K
 
     override val kodein by kodein()
 
-    private val factory : MatchDetailViewModelFactory by instance()
+    private val factory : ViewModelFactory by instance()
 
     private lateinit var binding : ActivityMatchDetailBinding
 

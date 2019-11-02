@@ -8,8 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.surya.livescoreleague.R
+import com.surya.livescoreleague.ui.main.ViewModelFactory
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.x.kodein
+import org.kodein.di.generic.instance
 
-class FavoritePlayerFragment : Fragment() {
+class FavoritePlayerFragment : Fragment() , KodeinAware {
+
+    override val kodein by kodein()
+    private val factory : ViewModelFactory by instance()
 
     companion object {
         fun newInstance() = FavoritePlayerFragment()
@@ -26,7 +33,7 @@ class FavoritePlayerFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModelFavorite = ViewModelProviders.of(this).get(FavoritePlayerViewModel::class.java)
+        viewModelFavorite = ViewModelProviders.of(this,factory).get(FavoritePlayerViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 import com.surya.livescoreleague.R
 import com.surya.livescoreleague.ui.league.LeagueViewModelFactory
+import com.surya.livescoreleague.ui.main.ViewModelFactory
 import kotlinx.android.synthetic.main.favorite_fragment.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.kodein
@@ -19,7 +20,7 @@ class FavoriteFragment : Fragment(), KodeinAware {
 
     override val kodein by kodein()
 
-    private val factory : FavoriteViewModelFactory by instance()
+    private val factory : ViewModelFactory by instance()
 
     companion object {
         fun newInstance() = FavoriteFragment()
@@ -37,7 +38,6 @@ class FavoriteFragment : Fragment(), KodeinAware {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this,factory).get(FavoriteViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

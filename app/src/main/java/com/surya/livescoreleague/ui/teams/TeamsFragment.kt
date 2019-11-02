@@ -12,6 +12,7 @@ import com.facebook.shimmer.ShimmerFrameLayout
 import com.mlsdev.animatedrv.AnimatedRecyclerView
 import com.surya.livescoreleague.R
 import com.surya.livescoreleague.data.db.entities.Teams
+import com.surya.livescoreleague.ui.main.ViewModelFactory
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import org.kodein.di.KodeinAware
@@ -21,7 +22,7 @@ import org.kodein.di.generic.instance
 class TeamsFragment : Fragment(), TeamsListener, KodeinAware {
     override val kodein by kodein()
 
-    private val factory: TeamsViewModelFactory by instance()
+    private val factory: ViewModelFactory by instance()
 
     companion object {
         fun newInstance() = TeamsFragment()

@@ -14,6 +14,7 @@ import com.mlsdev.animatedrv.AnimatedRecyclerView
 import com.surya.livescoreleague.R
 import com.surya.livescoreleague.data.db.entities.Player
 import com.surya.livescoreleague.data.db.entities.Teams
+import com.surya.livescoreleague.ui.main.ViewModelFactory
 import com.surya.livescoreleague.ui.teams.team_detail.TeamDetailViewModel
 import com.surya.livescoreleague.ui.teams.team_detail.TeamDetailViewModelFactory
 import com.surya.livescoreleague.util.toast
@@ -27,7 +28,7 @@ class PlayersFragment : Fragment(), KodeinAware, PlayerListener {
 
     override val kodein by kodein()
 
-    private val factory : PlayersViewModelFactory by instance()
+    private val factory : ViewModelFactory by instance()
 
     private lateinit var shimmer : ShimmerFrameLayout
     private lateinit var recyclerView: AnimatedRecyclerView
@@ -58,8 +59,6 @@ class PlayersFragment : Fragment(), KodeinAware, PlayerListener {
         viewModel = ViewModelProviders.of(this, factory).get(PlayersViewModel::class.java)
 
         val team = activity?.intent?.getParcelableExtra<Teams>("team")
-
-//        Log.e("fragment players"," id player "+team?.idTeam.toString())
 
         viewModel.playerListener = this
 
