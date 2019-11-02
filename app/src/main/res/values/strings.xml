@@ -4,6 +4,7 @@
     <string name="match">Match</string>
     <string name="favorite">Favorite</string>
     <string name="teams">Teams</string>
+    <string name="players">Players</string>
 
     <string name="tanggal_pertandingan">Tanggal Pertandingan</string>
     <string name="club_team_home">Club Team Home</string>

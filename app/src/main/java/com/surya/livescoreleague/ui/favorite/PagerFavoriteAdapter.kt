@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.surya.livescoreleague.ui.favorite.favorite_next.FavoriteNextFragment
+import com.surya.livescoreleague.ui.favorite.favorite_players.FavoritePlayerFragment
 import com.surya.livescoreleague.ui.favorite.favorite_previous.FavoritePreviousFragment
 import com.surya.livescoreleague.ui.favorite.favorite_teams.FavoriteTeamsFragment
 
@@ -14,7 +15,8 @@ class PagerFavoriteAdapter(fragment: FragmentManager): FragmentPagerAdapter(frag
     private val pages = listOf(
         FavoritePreviousFragment(),
         FavoriteNextFragment(),
-        FavoriteTeamsFragment()
+        FavoriteTeamsFragment(),
+        FavoritePlayerFragment()
     )
 
 
@@ -30,7 +32,8 @@ class PagerFavoriteAdapter(fragment: FragmentManager): FragmentPagerAdapter(frag
         return when(position){
             0 -> "Previous Match"
             1 -> "Next Match"
-            else -> "Teams"
+            2 -> "Teams"
+            else -> "Players"
         }
     }
 }

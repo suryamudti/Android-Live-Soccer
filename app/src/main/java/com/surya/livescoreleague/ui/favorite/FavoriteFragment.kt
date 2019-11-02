@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 
 import com.surya.livescoreleague.R
-import com.surya.livescoreleague.ui.league.LeagueViewModelFactory
 import com.surya.livescoreleague.ui.main.ViewModelFactory
 import kotlinx.android.synthetic.main.favorite_fragment.*
 import org.kodein.di.KodeinAware

@@ -2,7 +2,6 @@ package com.surya.livescoreleague.ui.teams.team_detail.player
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,8 +14,6 @@ import com.surya.livescoreleague.R
 import com.surya.livescoreleague.data.db.entities.Player
 import com.surya.livescoreleague.data.db.entities.Teams
 import com.surya.livescoreleague.ui.main.ViewModelFactory
-import com.surya.livescoreleague.ui.teams.team_detail.TeamDetailViewModel
-import com.surya.livescoreleague.ui.teams.team_detail.TeamDetailViewModelFactory
 import com.surya.livescoreleague.util.toast
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
