@@ -40,19 +40,5 @@ class LiveScoreApplication : Application(), KodeinAware {
         bind() from singleton { MatchRepository(instance(),instance(),instance()) }
 
         bind() from provider { ViewModelFactory(instance()) }
-
-        bind() from provider { LeagueViewModelFactory(instance()) }
-        bind() from provider { MatchViewModelFactory(instance()) }
-        bind() from provider { PreviousViewModelFactory(instance()) }
-        bind() from provider { NextViewModelFactory(instance()) }
-        bind() from provider { StandingsViewModelFactory(instance()) }
-        bind() from provider { MatchDetailViewModelFactory(instance())}
-        bind() from provider { TeamsViewModelFactory(instance()) }
-        bind() from provider { TeamDetailViewModelFactory(instance()) }
-        bind() from provider { FavoriteViewModelFactory(instance()) }
-        bind() from provider { FavoriteTeamsViewModelFactory(instance())}
-        bind() from provider { PlayersViewModelFactory(instance()) }
-
     }
-
 }

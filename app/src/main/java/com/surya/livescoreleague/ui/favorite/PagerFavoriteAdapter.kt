@@ -19,7 +19,7 @@ class PagerFavoriteAdapter(fragment: FragmentManager): FragmentPagerAdapter(frag
 
 
     override fun getItem(p0: Int): Fragment {
-        return pages[p0]
+        return pages[p0] as Fragment
     }
 
     override fun getCount(): Int {
