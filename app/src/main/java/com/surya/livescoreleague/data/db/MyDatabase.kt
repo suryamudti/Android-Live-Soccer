@@ -5,6 +5,7 @@ import androidx.room.*
 import androidx.sqlite.db.SupportSQLiteOpenHelper
 import com.surya.livescoreleague.data.db.dao.FavoriteDao
 import com.surya.livescoreleague.data.db.entities.FavoritePrevious
+import com.surya.livescoreleague.data.db.entities.Player
 import com.surya.livescoreleague.data.db.entities.Teams
 
 /**
@@ -13,7 +14,7 @@ import com.surya.livescoreleague.data.db.entities.Teams
 
 
 @Database(
-    entities = [FavoritePrevious::class, Teams::class],
+    entities = [FavoritePrevious::class, Teams::class, Player::class],
     version = 1
 )
 abstract class MyDatabase : RoomDatabase() {

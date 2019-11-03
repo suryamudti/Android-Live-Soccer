@@ -12,12 +12,12 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 @Entity
 data class Player(
+    @PrimaryKey
+    val idPlayer: String?,
+    val idTeam: String?,
     val dateBorn: String?,
     val dateSigned: String?,
-    val idPlayer: String?,
     val idSoccerXML: String?,
-    @PrimaryKey
-    val idTeam: String?,
     val intLoved: String?,
     val strBirthLocation: String?,
     val strCutout: String?,
