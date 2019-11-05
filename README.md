@@ -1,7 +1,7 @@
 # Android Live Soccer App
 
-![Screenshot](misc/Screenshot_1.png)
-![Screenshot](misc/Screenshot_6.png)
+![Screenshot](misc/Screenshot_1.png | width=48)
+![Screenshot](misc/Screenshot_6.png | width=48)
 
 Tech stack included :
 - [Kodein](https://github.com/Kodein-Framework/Kodein-DI) (Dependency Injection)
@@ -27,4 +27,6 @@ Tech stack included :
 
 - [Retrofit](https://github.com/square/retrofit) (Network Request)
     Type-safe HTTP client for Android and Java by Square, Inc. https://square.github.io/retrofit/
+
+
 

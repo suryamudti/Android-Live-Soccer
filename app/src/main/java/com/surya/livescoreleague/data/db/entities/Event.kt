@@ -9,7 +9,7 @@ import kotlinx.android.parcel.Parcelize
 @Entity
 data class Event(
     @PrimaryKey(autoGenerate = false)
-    val idEvent: String?,
+    val idEvent: String,
     val dateEvent: String?,
     val idAwayTeam: String?,
     val idHomeTeam: String?,
