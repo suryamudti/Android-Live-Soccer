@@ -1,9 +1,9 @@
 # Android Live Soccer App
 
-<img src="misc/Screenshot_1.png" width="200">
-<img src="misc/Screenshot_6.png" width="200">
-<img src="misc/Screenshot_2.png" width="200">
-<img src="misc/Screenshot_3.png" width="200">
+<img src="misc/Screenshot_1.png" width="200"> <img src="misc/Screenshot_6.png" width="200">
+<img src="misc/Screenshot_2.png" width="200"> <img src="misc/Screenshot_3.png" width="200">
+
+
 
 Tech stack included :
 - [Kodein](https://github.com/Kodein-Framework/Kodein-DI) (Dependency Injection)
