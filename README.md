@@ -1,5 +1,6 @@
 # Android Live Soccer App
 
+<img src="misc/Screenshot_1.png" width="48">
 ![Screenshot](misc/Screenshot_1.png | width=48)
 ![Screenshot](misc/Screenshot_6.png | width=48)
 
