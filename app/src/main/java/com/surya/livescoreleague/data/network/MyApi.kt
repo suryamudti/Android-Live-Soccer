@@ -1,5 +1,6 @@
 package com.surya.livescoreleague.data.network
 
+import com.surya.livescoreleague.BuildConfig
 import com.surya.livescoreleague.data.db.entities.PlayerResponse
 import com.surya.livescoreleague.data.network.responses.LeagueResponse
 import com.surya.livescoreleague.data.network.responses.MatchResponse
@@ -54,7 +55,7 @@ interface MyApi{
 
             return Retrofit.Builder()
                 .client(okHttpClient)
-                .baseUrl(Constants.BASE_URL)
+                .baseUrl(BuildConfig.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(MyApi::class.java)
