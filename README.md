@@ -4,7 +4,6 @@
 <img src="misc/Screenshot_2.png" width="200"> <img src="misc/Screenshot_3.png" width="200">
 
 
-
 Tech stack included :
 - [Kodein](https://github.com/Kodein-Framework/Kodein-DI) (Dependency Injection)
     Kodein is a very simple and yet very useful dependency retrieval container. it is very easy to use and configure.
@@ -26,6 +25,9 @@ Tech stack included :
 
 - [Groupie](https://github.com/lisawray/groupie) (Recyclerview Framework)
     Groupie helps you display and manage complex RecyclerView layouts.
+
+- [Shimmer](https://github.com/facebook/shimmer-android) (Loading layout)
+    An easy, flexible way to add a shimmering effect to any view in an Android app.
 
 - [Retrofit](https://github.com/square/retrofit) (Network Request)
     Type-safe HTTP client for Android and Java by Square, Inc. https://square.github.io/retrofit/
