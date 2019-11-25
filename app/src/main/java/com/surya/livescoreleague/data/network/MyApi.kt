@@ -6,9 +6,7 @@ import com.surya.livescoreleague.data.network.responses.LeagueResponse
 import com.surya.livescoreleague.data.network.responses.MatchResponse
 import com.surya.livescoreleague.data.network.responses.StandingsResponse
 import com.surya.livescoreleague.data.network.responses.TeamsResponse
-import com.surya.livescoreleague.util.Constants
 import okhttp3.OkHttpClient
-import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
