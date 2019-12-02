@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.EventLog
 import android.view.Menu
+import android.view.MenuItem
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
@@ -30,6 +31,8 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailViewModelListener, K
 
     private lateinit var binding : ActivityMatchDetailBinding
 
+    private lateinit var viewModel : MatchDetailViewModel
+
     private var isFavorite = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +44,7 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailViewModelListener, K
 
         binding.event = event
 
-        val viewModel = ViewModelProviders.of(this,factory).get(MatchDetailViewModel::class.java)
+        viewModel = ViewModelProviders.of(this,factory).get(MatchDetailViewModel::class.java)
 
         viewModel.listener = this
 
@@ -67,6 +70,31 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailViewModelListener, K
                 .getDrawable(this, R.drawable.ic_added_to_favorites)
         }
         return super.onPrepareOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when(item.itemId){
+            android.R.id.home ->{
+                finish()
+                return true
+            }
+            R.id.add_to_favorite -> {
+                if (isFavorite){
+                    viewModel.deleteFromFavorite(movie)
+                    isFavorite = false
+                    toast("deleted")
+                    invalidateOptionsMenu()
+                }else{
+                    viewModel.addToFavorite(movie)
+                    isFavorite = true
+                    toast("added")
+                    invalidateOptionsMenu()
+                }
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onStarted() {}

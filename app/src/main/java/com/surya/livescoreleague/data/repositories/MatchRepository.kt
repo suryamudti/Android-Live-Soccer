@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.surya.livescoreleague.data.db.entities.PlayerResponse
 import com.surya.livescoreleague.data.db.MyDatabase
+import com.surya.livescoreleague.data.db.entities.Event
 import com.surya.livescoreleague.data.db.entities.Teams
 import com.surya.livescoreleague.data.db.models.League
 import com.surya.livescoreleague.data.network.MyApi
@@ -118,6 +119,17 @@ class MatchRepository(
         Coroutines.io {
             db.getFavoritesDao().deleteTeam(team)
         }
+    }
+
+    suspend fun getAllLocalEvents(isPrevious: Int):LiveData<List<Event>>{
+        return when(isPrevious){
+            1 -> withContext(Dispatchers.IO){ db.getFavoritesDao().getAllPrevious()}
+            else -> withContext(Dispatchers.IO){ db.getFavoritesDao().getAllNext()}
+        }
+    }
+
+    suspend fun getSingleLocalEvents(id: String):LiveData<Event>{
+        return withContext(Dispatchers.IO){ db.getFavoritesDao().getSingleEvent(id)}
     }
 
 }
