@@ -11,7 +11,7 @@ data class Event(
     @PrimaryKey(autoGenerate = false)
     val idEvent: String,
     val dateEvent: String?,
-    val isPrevious: Int?,
+    var isPrevious: Int?,
     val idAwayTeam: String?,
     val idHomeTeam: String?,
     val idLeague: String?,

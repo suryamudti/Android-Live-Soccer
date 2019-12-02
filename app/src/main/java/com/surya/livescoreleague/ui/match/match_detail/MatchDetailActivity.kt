@@ -3,10 +3,12 @@ package com.surya.livescoreleague.ui.match.match_detail
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.EventLog
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.squareup.picasso.Picasso
 import com.surya.livescoreleague.R
@@ -43,6 +45,7 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailViewModelListener, K
         event = intent.getParcelableExtra<Event>("event")
         isPrevious = intent.getIntExtra("isPrevious",0)
 
+        event.isPrevious = isPrevious
 
         binding = DataBindingUtil.setContentView(this,R.layout.activity_match_detail)
 
@@ -57,6 +60,15 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailViewModelListener, K
         event?.idAwayTeam?.let { viewModel.getAwayTeam(it) }
         event?.idHomeTeam?.let { viewModel.getHomeTeam(it) }
 
+        viewModel.getSingleEvent(event.idEvent).observe(this, Observer {
+
+            Log.e("data event","$it")
+
+            if (it != null){
+                isFavorite =true
+            }
+        })
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -68,10 +80,10 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailViewModelListener, K
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
         menu?.getItem(0)?.isVisible = true
         if (isFavorite){
-            menu?.getItem(0)?.icon = ContextCompat.getDrawable(this, R.drawable.ic_add_to_favorites)
-        }else{
             menu?.getItem(0)?.icon = ContextCompat
                 .getDrawable(this, R.drawable.ic_added_to_favorites)
+        }else{
+            menu?.getItem(0)?.icon = ContextCompat.getDrawable(this, R.drawable.ic_add_to_favorites)
         }
         return super.onPrepareOptionsMenu(menu)
     }
@@ -113,6 +125,10 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailViewModelListener, K
         Picasso.get()
             .load(team?.strTeamBadge)
             .into(binding.imgAway)
+    }
+
+    override fun onSuccess(event: Event?) {
+        binding.event = event
     }
 
     override fun onFailure(message: String) {

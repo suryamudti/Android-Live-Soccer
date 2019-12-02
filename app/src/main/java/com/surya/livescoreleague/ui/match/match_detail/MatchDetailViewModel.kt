@@ -1,5 +1,8 @@
 package com.surya.livescoreleague.ui.match.match_detail
 
+import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.surya.livescoreleague.data.db.entities.Event
 import com.surya.livescoreleague.data.repositories.MatchRepository
@@ -12,6 +15,8 @@ import com.surya.livescoreleague.util.Coroutines
 class MatchDetailViewModel(
     private val repository: MatchRepository
 ) : ViewModel() {
+
+    private var event = MutableLiveData<Event>()
 
     var listener : MatchDetailViewModelListener ? = null
 
@@ -37,7 +42,21 @@ class MatchDetailViewModel(
         }
     }
 
+    fun getSingleEvent(id: String):LiveData<Event>{
+
+        Coroutines.io {
+            val data = repository.getSingleLocalEvents(id).value
+            event.postValue(data)
+            Log.e("single event", "$data")
+            listener?.onSuccess(data)
+
+        }
+
+        return event
+    }
+
     fun addToFavorite(data: Event,isPrevious:Int){
+        Log.e("add to favorite", "$data")
         repository.insertEvent(data,isPrevious)
     }
 

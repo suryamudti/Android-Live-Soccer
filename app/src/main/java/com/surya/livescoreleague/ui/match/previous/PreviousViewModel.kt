@@ -17,7 +17,7 @@ class PreviousViewModel(
 
     var listener : PreviousListener ? = null
 
-    fun getPreviousMatch() : MutableLiveData<List<Event>>? {
+    fun getPreviousMatch() : LiveData<List<Event>>? {
 
         listener?.onStarted()
 

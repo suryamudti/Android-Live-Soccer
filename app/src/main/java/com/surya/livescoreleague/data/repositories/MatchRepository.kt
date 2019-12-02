@@ -1,5 +1,6 @@
 package com.surya.livescoreleague.data.repositories
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.surya.livescoreleague.data.db.entities.PlayerResponse
@@ -17,7 +18,6 @@ import com.surya.livescoreleague.data.preferences.PreferencesProvider
 import com.surya.livescoreleague.util.Coroutines
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import okhttp3.Dispatcher
 
 /**
  * Created by suryamudti on 06/08/2019.
@@ -123,17 +123,16 @@ class MatchRepository(
 
     // Favorite Events
     suspend fun getAllLocalEvents(isPrevious: Int):LiveData<List<Event>>{
-        return when(isPrevious){
-            1 -> withContext(Dispatchers.IO){ db.getFavoritesDao().getAllPrevious()}
-            else -> withContext(Dispatchers.IO){ db.getFavoritesDao().getAllNext()}
-        }
+        return withContext(Dispatchers.IO){ db.getFavoritesDao().getAllEvents(isPrevious)}
     }
 
     suspend fun getSingleLocalEvents(id: String):LiveData<Event>{
-        return withContext(Dispatchers.IO){ db.getFavoritesDao().getSingleEvent(id)}
+        Log.e("id favorite", "$id")
+        return withContext(Dispatchers.Main){ db.getFavoritesDao().getSingleEvent(id)}
     }
 
     fun insertEvent(event: Event,isPrevious: Int){
+        Log.e("insert to favorite", "$event")
         Coroutines.io {
             if (isPrevious==1) db.getFavoritesDao().insertPreviousEvent(event)
             else db.getFavoritesDao().insertNextEvent(event)

@@ -1,5 +1,6 @@
 package com.surya.livescoreleague.ui.match.match_detail
 
+import com.surya.livescoreleague.data.db.entities.Event
 import com.surya.livescoreleague.data.db.entities.Teams
 
 /**
@@ -10,6 +11,7 @@ interface MatchDetailViewModelListener {
     fun onStarted()
     fun onShowHomeTeam(team: Teams)
     fun onShowAwayTeam(team: Teams)
+    fun onSuccess(event: Event?)
     fun onFailure(message: String)
 
 }

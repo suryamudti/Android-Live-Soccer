@@ -2,10 +2,7 @@ package com.surya.livescoreleague.data.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.surya.livescoreleague.data.db.entities.Event
 import com.surya.livescoreleague.data.db.entities.Teams
 
@@ -30,25 +27,21 @@ interface FavoriteDao {
     suspend fun deleteTeam(team: Teams)
 
     // Favorite Events
-    @Query("SELECT * FROM Event WHERE idEvent = :id")
-    fun getSingleEvent(id: String) : LiveData<Event>
+    @Query("SELECT * FROM Event WHERE idEvent = :idEvent")
+    fun getSingleEvent(idEvent: String) : LiveData<Event>
 
     @Delete
     suspend fun deleteEvent(event:Event)
 
+    @Query("SELECT * FROM Event WHERE isPrevious = :isPrevious")
+    fun getAllEvents(isPrevious:Int) : LiveData<List<Event>>
+
     // Favorite Previous Events
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPreviousEvent(event: Event)
 
-    @Query("SELECT * FROM Event WHERE isPrevious = 1")
-    suspend fun getAllPrevious() : LiveData<List<Event>>
-
     // Favorite Next Events
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNextEvent(event: Event)
-
-    @Query("SELECT * FROM Event WHERE isPrevious = 0")
-    suspend fun getAllNext() : LiveData<List<Event>>
-
 
 }
