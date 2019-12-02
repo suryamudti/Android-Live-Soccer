@@ -3,6 +3,7 @@ package com.surya.livescoreleague.ui.match.match_detail
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.EventLog
+import android.view.Menu
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.squareup.picasso.Picasso
@@ -46,6 +47,12 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailViewModelListener, K
         event?.idAwayTeam?.let { viewModel.getAwayTeam(it) }
         event?.idHomeTeam?.let { viewModel.getHomeTeam(it) }
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.detail_menu, menu)
+
+        return super.onCreateOptionsMenu(menu)
     }
 
     override fun onStarted() {}

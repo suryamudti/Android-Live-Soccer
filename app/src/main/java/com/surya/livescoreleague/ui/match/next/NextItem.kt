@@ -23,6 +23,7 @@ class NextItem(private val event: Event) : BindableItem<ItemMatchBinding>() {
 
         viewBinding.root.setOnClickListener {
             val intent = Intent(it.context, MatchDetailActivity::class.java)
+            intent.putExtra("isPrevious",0)
             intent.putExtra("event",this.event)
             it.context.startActivity(intent)
         }

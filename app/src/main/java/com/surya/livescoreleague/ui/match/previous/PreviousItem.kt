@@ -24,6 +24,7 @@ class PreviousItem(
 
         viewBinding.root.setOnClickListener {
             val intent = Intent(it.context, MatchDetailActivity::class.java)
+            intent.putExtra("isPrevious",1)
             intent.putExtra("event",this.event)
             it.context.startActivity(intent)
         }
