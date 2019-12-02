@@ -34,11 +34,15 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailViewModelListener, K
     private lateinit var viewModel : MatchDetailViewModel
 
     private var isFavorite = false
+    private var isPrevious = 0
+    private lateinit var event: Event
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val event = intent.getParcelableExtra<Event>("event")
+        event = intent.getParcelableExtra<Event>("event")
+        isPrevious = intent.getIntExtra("isPrevious",0)
+
 
         binding = DataBindingUtil.setContentView(this,R.layout.activity_match_detail)
 
@@ -81,12 +85,12 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailViewModelListener, K
             }
             R.id.add_to_favorite -> {
                 if (isFavorite){
-                    viewModel.deleteFromFavorite(movie)
+                    viewModel.deleteFromFavorite(event)
                     isFavorite = false
                     toast("deleted")
                     invalidateOptionsMenu()
                 }else{
-                    viewModel.addToFavorite(movie)
+                    viewModel.addToFavorite(event,isPrevious)
                     isFavorite = true
                     toast("added")
                     invalidateOptionsMenu()

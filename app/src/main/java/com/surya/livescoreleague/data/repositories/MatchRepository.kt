@@ -121,6 +121,7 @@ class MatchRepository(
         }
     }
 
+    // Favorite Events
     suspend fun getAllLocalEvents(isPrevious: Int):LiveData<List<Event>>{
         return when(isPrevious){
             1 -> withContext(Dispatchers.IO){ db.getFavoritesDao().getAllPrevious()}
@@ -130,6 +131,19 @@ class MatchRepository(
 
     suspend fun getSingleLocalEvents(id: String):LiveData<Event>{
         return withContext(Dispatchers.IO){ db.getFavoritesDao().getSingleEvent(id)}
+    }
+
+    fun insertEvent(event: Event,isPrevious: Int){
+        Coroutines.io {
+            if (isPrevious==1) db.getFavoritesDao().insertPreviousEvent(event)
+            else db.getFavoritesDao().insertNextEvent(event)
+        }
+    }
+
+    fun deleteEvent(event: Event){
+        Coroutines.io {
+            db.getFavoritesDao().deleteEvent(event)
+        }
     }
 
 }

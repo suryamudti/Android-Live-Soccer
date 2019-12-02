@@ -1,6 +1,7 @@
 package com.surya.livescoreleague.ui.match.match_detail
 
 import androidx.lifecycle.ViewModel
+import com.surya.livescoreleague.data.db.entities.Event
 import com.surya.livescoreleague.data.repositories.MatchRepository
 import com.surya.livescoreleague.util.ApiException
 import com.surya.livescoreleague.util.Coroutines
@@ -34,5 +35,13 @@ class MatchDetailViewModel(
                 listener?.onFailure(e.message!!)
             }
         }
+    }
+
+    fun addToFavorite(data: Event,isPrevious:Int){
+        repository.insertEvent(data,isPrevious)
+    }
+
+    fun deleteFromFavorite(data: Event){
+        repository.deleteEvent(data)
     }
 }
