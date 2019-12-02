@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.EventLog
 import android.view.Menu
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.squareup.picasso.Picasso
@@ -29,6 +30,8 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailViewModelListener, K
 
     private lateinit var binding : ActivityMatchDetailBinding
 
+    private var isFavorite = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -53,6 +56,17 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailViewModelListener, K
         menuInflater.inflate(R.menu.detail_menu, menu)
 
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        menu?.getItem(0)?.isVisible = true
+        if (isFavorite){
+            menu?.getItem(0)?.icon = ContextCompat.getDrawable(this, R.drawable.ic_add_to_favorites)
+        }else{
+            menu?.getItem(0)?.icon = ContextCompat
+                .getDrawable(this, R.drawable.ic_added_to_favorites)
+        }
+        return super.onPrepareOptionsMenu(menu)
     }
 
     override fun onStarted() {}
