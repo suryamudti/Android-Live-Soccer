@@ -57,9 +57,8 @@ class PreviousFragment : Fragment(),PreviousListener, KodeinAware {
 
         viewModel.listener = this
 
-
         // observe data list event
-        viewModel.getPreviousMatch()?.observe(this, Observer {
+        viewModel.getPreviousMatch()?.observe(viewLifecycleOwner, Observer {
 
             Log.e("data","nihh sizenya ${it.size}")
 
