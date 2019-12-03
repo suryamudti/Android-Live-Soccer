@@ -28,13 +28,13 @@ interface FavoriteDao {
 
     // Favorite Events
     @Query("SELECT * FROM Event WHERE idEvent = :idEvent")
-    fun getSingleEvent(idEvent: String) : LiveData<Event>
+    fun getSingleEvent(idEvent: String) : Event
 
     @Delete
     suspend fun deleteEvent(event:Event)
 
     @Query("SELECT * FROM Event WHERE isPrevious = :isPrevious")
-    fun getAllEvents(isPrevious:Int) : LiveData<List<Event>>
+    fun getAllEvents(isPrevious:Int) : List<Event>
 
     // Favorite Previous Events
     @Insert(onConflict = OnConflictStrategy.REPLACE)

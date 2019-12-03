@@ -62,10 +62,8 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailViewModelListener, K
 
         viewModel.getSingleEvent(event.idEvent).observe(this, Observer {
 
-            Log.e("data event","$it")
-
-            if (it != null){
-                isFavorite =true
+            it?.let {
+                isFavorite = true
             }
         })
 
@@ -102,7 +100,7 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailViewModelListener, K
                     toast("deleted")
                     invalidateOptionsMenu()
                 }else{
-                    viewModel.addToFavorite(event,isPrevious)
+                    viewModel.addToFavorite(event)
                     isFavorite = true
                     toast("added")
                     invalidateOptionsMenu()
@@ -128,7 +126,7 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailViewModelListener, K
     }
 
     override fun onSuccess(event: Event?) {
-        binding.event = event
+//        binding.event = event
     }
 
     override fun onFailure(message: String) {

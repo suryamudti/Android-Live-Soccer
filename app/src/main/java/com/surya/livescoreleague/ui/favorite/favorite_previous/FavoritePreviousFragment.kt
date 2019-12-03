@@ -57,13 +57,12 @@ class FavoritePreviousFragment : Fragment(), KodeinAware, FavoritePreviousListen
 
         viewModel.getPreviousMatch()?.observe(viewLifecycleOwner, Observer {
 
-            val mAdapter = GroupAdapter<ViewHolder>().apply {
-                if (it != null) {
+            it?.let {
+                val mAdapter = GroupAdapter<ViewHolder>().apply {
                     addAll(it.toItem())
                 }
+                recyclerView.adapter = mAdapter
             }
-
-            recyclerView.adapter = mAdapter
         })
     }
 
@@ -71,13 +70,14 @@ class FavoritePreviousFragment : Fragment(), KodeinAware, FavoritePreviousListen
     }
 
     override fun onSuccess(data: List<Event>?) {
-        val mAdapter = GroupAdapter<ViewHolder>().apply {
-            if (data != null) {
+
+        if (data != null) {
+
+            val mAdapter = GroupAdapter<ViewHolder>().apply {
                 addAll(data.toItem())
             }
+            recyclerView.adapter = mAdapter
         }
-
-        recyclerView.adapter = mAdapter
     }
 
     override fun onFailure(message: String) {

@@ -16,7 +16,8 @@ import com.surya.livescoreleague.data.db.entities.Teams
 
 @Database(
     entities = [FavoritePrevious::class, Teams::class, Player::class,Event::class],
-    version = 1
+    version = 2,
+    exportSchema = false
 )
 abstract class MyDatabase : RoomDatabase() {
 

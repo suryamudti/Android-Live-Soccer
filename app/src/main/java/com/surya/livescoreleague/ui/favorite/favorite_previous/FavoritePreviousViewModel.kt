@@ -20,15 +20,12 @@ class FavoritePreviousViewModel(
 
         listener?.onStarted()
 
-        Coroutines.main {
+        Coroutines.io {
             try {
-                val matchResponse = repository.getAllLocalEvents(1).value
+                val matchResponse = repository.getAllLocalEvents(1)
 
-                matchResponse.let {
-                    dataList?.value = it
-                    listener?.onSuccess(it)
-                    return@main
-
+                matchResponse?.let {
+                    dataList.postValue(it)
                 }
             }catch (e: ApiException){
                 listener?.onFailure(e.message!!)

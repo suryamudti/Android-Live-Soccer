@@ -16,7 +16,7 @@ class MatchDetailViewModel(
     private val repository: MatchRepository
 ) : ViewModel() {
 
-    private var event = MutableLiveData<Event>()
+    private val event = MutableLiveData<Event>()
 
     var listener : MatchDetailViewModelListener ? = null
 
@@ -45,19 +45,15 @@ class MatchDetailViewModel(
     fun getSingleEvent(id: String):LiveData<Event>{
 
         Coroutines.io {
-            val data = repository.getSingleLocalEvents(id).value
+            val data = repository.getSingleLocalEvents(id)
             event.postValue(data)
-            Log.e("single event", "$data")
-            listener?.onSuccess(data)
-
         }
-
         return event
     }
 
-    fun addToFavorite(data: Event,isPrevious:Int){
+    fun addToFavorite(data: Event){
         Log.e("add to favorite", "$data")
-        repository.insertEvent(data,isPrevious)
+        repository.insertEvent(data)
     }
 
     fun deleteFromFavorite(data: Event){
