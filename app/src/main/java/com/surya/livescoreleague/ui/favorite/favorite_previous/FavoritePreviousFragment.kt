@@ -14,6 +14,7 @@ import com.surya.livescoreleague.R
 import com.surya.livescoreleague.data.db.entities.Event
 import com.surya.livescoreleague.ui.main.ViewModelFactory
 import com.surya.livescoreleague.ui.match.previous.PreviousItem
+import com.surya.livescoreleague.util.toast
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import org.kodein.di.KodeinAware
@@ -81,7 +82,7 @@ class FavoritePreviousFragment : Fragment(), KodeinAware, FavoritePreviousListen
     }
 
     override fun onFailure(message: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        activity?.toast("$message")
     }
 
     private fun List<Event>.toItem() : List<PreviousItem>{
