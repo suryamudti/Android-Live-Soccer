@@ -32,7 +32,6 @@ class TeamDetailViewModel(
 
     fun getDetailPlayer(id: String): MutableLiveData<Player>{
 
-        Log.e("datass","$id")
         playerDetailListener?.onStarted()
 
         Coroutines.main{

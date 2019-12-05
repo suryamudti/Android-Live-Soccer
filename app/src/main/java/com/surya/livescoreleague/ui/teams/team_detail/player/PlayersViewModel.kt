@@ -26,8 +26,6 @@ class PlayersViewModel(
         playerListener?.onStarted()
         Coroutines.main {
             try {
-
-
                 val response = repository.getListPlayer()
                 Log.e("masuk vm", "${response.toString()}")
 

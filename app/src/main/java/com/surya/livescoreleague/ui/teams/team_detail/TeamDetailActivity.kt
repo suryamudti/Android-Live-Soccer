@@ -35,9 +35,5 @@ class TeamDetailActivity : AppCompatActivity(), KodeinAware {
 
         view_pager_teams.adapter = TeamDetailPagerAdapter(supportFragmentManager)
         tabLayoutTeams.setupWithViewPager(view_pager_teams)
-
-//        val id = team.idTeam
-
-
     }
 }

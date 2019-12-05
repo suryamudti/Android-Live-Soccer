@@ -23,7 +23,6 @@ class TeamsItem(
         Picasso.get().load(team.strTeamBadge).into(viewBinding.imgLiga)
         viewBinding.team = team
         viewBinding.root.setOnClickListener {
-//            Log.e("team item",team.toString())
 
             val intent = Intent(it.context, TeamDetailActivity::class.java)
             intent.putExtra("team",team)
