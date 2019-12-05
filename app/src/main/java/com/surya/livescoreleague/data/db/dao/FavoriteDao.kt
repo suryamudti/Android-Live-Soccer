@@ -33,8 +33,8 @@ interface FavoriteDao {
     @Delete
     suspend fun deleteEvent(event:Event)
 
-    @Query("SELECT * FROM Event WHERE isPrevious = :isPrevious")
-    fun getAllEvents(isPrevious:Int) : List<Event>
+    @Query("SELECT * FROM Event WHERE isPrevious = :isPrevious AND idLeague = :leagueId")
+    fun getAllEvents(isPrevious:Int, leagueId:String) : List<Event>
 
     // Favorite Previous Events
     @Insert(onConflict = OnConflictStrategy.REPLACE)

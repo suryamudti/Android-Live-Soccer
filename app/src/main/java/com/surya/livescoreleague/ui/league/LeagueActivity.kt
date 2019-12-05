@@ -23,7 +23,7 @@ class LeagueActivity : AppCompatActivity(), KodeinAware {
 
     private lateinit var activedFragment : Fragment
     private lateinit var f1 : Fragment
-    private lateinit var f2 : Fragment
+    private var f2 : Fragment = FavoriteFragment()
     private lateinit var f3 : Fragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +31,6 @@ class LeagueActivity : AppCompatActivity(), KodeinAware {
         setContentView(R.layout.activity_league)
 
         f1 = MatchFragment()
-        f2 = FavoriteFragment()
         f3 = TeamsFragment()
 
         val league = intent.getParcelableExtra<StaticLeague>("league_data")

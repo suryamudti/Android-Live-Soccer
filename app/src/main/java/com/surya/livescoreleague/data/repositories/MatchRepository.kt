@@ -1,11 +1,10 @@
 package com.surya.livescoreleague.data.repositories
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.surya.livescoreleague.data.db.entities.PlayerResponse
 import com.surya.livescoreleague.data.db.MyDatabase
 import com.surya.livescoreleague.data.db.entities.Event
+import com.surya.livescoreleague.data.db.entities.PlayerResponse
 import com.surya.livescoreleague.data.db.entities.Teams
 import com.surya.livescoreleague.data.db.models.League
 import com.surya.livescoreleague.data.network.MyApi
@@ -123,7 +122,7 @@ class MatchRepository(
 
     // Favorite Events
     suspend fun getAllLocalEvents(isPrevious: Int):List<Event>{
-        return withContext(Dispatchers.IO){ db.getFavoritesDao().getAllEvents(isPrevious)}
+        return withContext(Dispatchers.IO){ db.getFavoritesDao().getAllEvents(isPrevious,getLeagueId()!!)}
     }
 
     suspend fun getSingleLocalEvents(id: String): Event? {
