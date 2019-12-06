@@ -60,5 +60,9 @@ class TeamDetailViewModel(
         repository.saveTeams(team)
     }
 
+    fun deleteTeam(team: Teams){
+        repository.deleteTeams(team)
+    }
+
 
 }

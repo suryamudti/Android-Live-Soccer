@@ -114,7 +114,7 @@ class MatchRepository(
         }
     }
 
-    private fun deleteTeams(team: Teams){
+    fun deleteTeams(team: Teams){
         Coroutines.io {
             db.getFavoritesDao().deleteTeam(team)
         }

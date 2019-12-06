@@ -31,6 +31,7 @@ class TeamDetailFragment : Fragment(), KodeinAware {
 
     private var menuItem: Menu? = null
     private var isFavorite: Boolean = false
+    private var team: Teams ?= null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +40,7 @@ class TeamDetailFragment : Fragment(), KodeinAware {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.team_detail_fragment, container,false )
 
-        val team = activity?.intent?.getParcelableExtra<Teams>("team")
+        team = activity?.intent?.getParcelableExtra<Teams>("team")
 
         binding.team = team
 
@@ -72,10 +73,10 @@ class TeamDetailFragment : Fragment(), KodeinAware {
 
         return when (item?.itemId) {
             R.id.add_to_favorite -> {
-                if (isFavorite) removeFromFavorite()
-                else  addToFavorite()
+                if (isFavorite) team?.let { viewModel.deleteTeam(it) }
+                else  team?.let { viewModel.insertTeam(it) }
                 isFavorite = !isFavorite
-                setFavorite()
+                    setFavorite()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -83,10 +84,6 @@ class TeamDetailFragment : Fragment(), KodeinAware {
     }
 
     private fun setFavorite() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    private fun addToFavorite() {
 
     }
 
