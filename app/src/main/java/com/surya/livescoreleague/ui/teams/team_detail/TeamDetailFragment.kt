@@ -87,7 +87,7 @@ class TeamDetailFragment : Fragment(), KodeinAware {
     }
 
     private fun addToFavorite() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     private fun removeFromFavorite() {

@@ -108,7 +108,7 @@ class MatchRepository(
         }
     }
 
-    private fun saveTeams(team: Teams){
+    fun saveTeams(team: Teams){
         Coroutines.io {
             db.getFavoritesDao().insertTeam(team)
         }

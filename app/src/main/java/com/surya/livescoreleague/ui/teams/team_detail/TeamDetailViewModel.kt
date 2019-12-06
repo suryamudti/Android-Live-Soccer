@@ -28,8 +28,6 @@ class TeamDetailViewModel(
 
     private var player = MutableLiveData<Player>()
 
-
-
     fun getDetailPlayer(id: String): MutableLiveData<Player>{
 
         playerDetailListener?.onStarted()
@@ -56,6 +54,10 @@ class TeamDetailViewModel(
         team.idTeam?.let {
             repository.setTeamId(it)
         }
+    }
+
+    fun insertTeam(team:Teams){
+        repository.saveTeams(team)
     }
 
 
