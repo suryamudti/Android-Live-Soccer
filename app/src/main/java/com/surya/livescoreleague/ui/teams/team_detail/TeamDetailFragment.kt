@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -67,6 +68,17 @@ class TeamDetailFragment : Fragment(), KodeinAware {
         menuItem = menu
         returnTransition
         super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        menu?.getItem(0)?.isVisible = true
+        if (isFavorite){
+            menu?.getItem(0)?.icon = ContextCompat
+                .getDrawable(context!!, R.drawable.ic_added_to_favorites)
+        }else{
+            menu?.getItem(0)?.icon = ContextCompat.getDrawable(context!!, R.drawable.ic_add_to_favorites)
+        }
+        return super.onPrepareOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
