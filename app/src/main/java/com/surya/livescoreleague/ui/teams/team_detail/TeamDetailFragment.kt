@@ -95,6 +95,9 @@ class TeamDetailFragment : Fragment(), KodeinAware {
         }
     }
 
+    /**
+     * This function will set the current team is favorited
+     * */
     private fun setFavorite() {
 
     }
