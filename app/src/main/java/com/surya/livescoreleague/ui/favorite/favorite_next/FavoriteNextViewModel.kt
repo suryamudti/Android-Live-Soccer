@@ -12,10 +12,20 @@ class FavoriteNextViewModel(
     val repository: MatchRepository
 ) : ViewModel() {
 
+    /**
+     * Define observable data for list of event
+     * */
     private var dataList = MutableLiveData<List<Event>>()
 
+    /**
+     * Define listener will for Handling the events to UI
+     * */
     var listener : FavoriteNextListener? =null
 
+    /**
+     * This function will get next match favorite
+     * @return type should return List of Event LiveData
+     * */
     fun getNextMatch(): LiveData<List<Event>>? {
 
         Coroutines.io {
