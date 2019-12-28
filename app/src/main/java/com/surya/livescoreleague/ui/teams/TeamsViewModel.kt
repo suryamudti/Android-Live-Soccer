@@ -9,8 +9,14 @@ class TeamsViewModel(
     private val repository: MatchRepository
 ) : ViewModel() {
 
+    /**
+     * Define listener will for Handling the events to UI
+     * */
     var listener : TeamsListener ? = null
 
+    /**
+     * This function will fetch team list data from remote API
+     * */
     fun getTeamList(){
         listener?.onStarted()
 
