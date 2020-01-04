@@ -11,7 +11,7 @@ apply plugin: "androidx.navigation.safeargs"
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.0"
+    buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.surya.livescoreleague"
         minSdkVersion 19
@@ -67,20 +67,20 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:2.1.0"
 
     //New Material Design
-    implementation 'com.google.android.material:material:1.2.0-alpha02'
+    implementation 'com.google.android.material:material:1.2.0-alpha03'
 
     //Kodein Dependency Injection
     implementation "org.kodein.di:kodein-di-generic-jvm:6.2.1"
     implementation "org.kodein.di:kodein-di-framework-android-x:6.2.1"
 
     //Android Room
-    implementation "androidx.room:room-runtime:2.2.1"
-    implementation "androidx.room:room-ktx:2.2.1"
-    kapt "androidx.room:room-compiler:2.2.1"
+    implementation "androidx.room:room-runtime:2.2.3"
+    implementation "androidx.room:room-ktx:2.2.3"
+    kapt "androidx.room:room-compiler:2.2.3"
 
     //Android Navigation Architecture
-    implementation "androidx.navigation:navigation-fragment-ktx:2.2.0-rc01"
-    implementation "androidx.navigation:navigation-ui-ktx:2.2.0-rc01"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.2.0-rc04"
+    implementation "androidx.navigation:navigation-ui-ktx:2.2.0-rc04"
 
     //Groupie
     implementation "com.xwray:groupie:2.3.0"
